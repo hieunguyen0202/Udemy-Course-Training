@@ -55,5 +55,6 @@
 - Enter space every line
   ```
     sed G test
+    sed -i G test
     ```
 - Substitute within `vi` editor
