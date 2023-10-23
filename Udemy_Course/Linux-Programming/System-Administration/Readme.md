@@ -13,6 +13,11 @@
    # g: replace entire the file
     sed -i 's/oldWord/newWord/g' file
     ```
+- Remove the string from file
+    ```
+    sed 's/removeWord//g' file
+    sed -i 's/removeWord//g' file
+    ```
     
 - Find and delete a line
 - Remove empty lines
