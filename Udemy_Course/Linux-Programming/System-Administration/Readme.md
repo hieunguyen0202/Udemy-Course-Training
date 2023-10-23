@@ -30,6 +30,12 @@
     sed -i '/^$/d' test
     ```
 - Remove the first or n lines in a file
+  ```
+    # Remove the first line
+    sed '1d' test
+    # Remove the first two line
+    sed -i '1,2d' test
+    ```
 - To replace tabs with spaces
 - Show defined lines from a file
 - Substitute within `vi` editor
