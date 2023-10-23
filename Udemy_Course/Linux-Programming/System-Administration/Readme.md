@@ -110,3 +110,13 @@
     ```
     <NameOfUser>:<Password>:<UserID>:<GroupID>::<HomeDirectory>:/bin/bash
     ```
+  - Get information for detailed user
+    ```
+    grep UserName /etc/passwd
+    ```
+  - Create all
+    ```
+    useradd -g GroupName -s  /bin/bash -c "Description of group" -m -d  /home/UserName UserName
+    // Check
+    id UserName
+    ```
