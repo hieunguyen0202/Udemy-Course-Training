@@ -58,3 +58,10 @@
     sed -i G test
     ```
 - Substitute within `vi` editor
+## User Account Management (useradd, groupadd, usermod, userdel, groupdel)
+-File 
+    - /etc/passwd
+    - /etc/group
+    - /etc/shadow
+- Commands
+    - `useradd`:
