@@ -79,5 +79,34 @@
       ```
    - groupadd:
      ```
-     vbdfbd
+     groupadd newNameGroup
+     // check
+     cat /etc/group
      ```
+  - userdel:
+     ```
+     userdel -r oldUserName
+     // check
+     ls -ltr
+     ```
+  - groupdel:
+     ```
+     groupdel oldGroupName
+     // check
+     cat /etc/group
+     ```
+  - usermod: this command is used to modify the user
+     ```
+     // Assign the group for user
+     usermod -G oldGroupName oldUsername
+     // check
+     grep oldUsername /etc/group
+     // Change actual group for user
+     chgrp -R oldGroupName oldUsername
+     // Check
+     ls -ltr
+     ```
+  - Description of /etc/passwd
+    ```
+    <NameOfUser>:<Password>:<UserID>:<GroupID>::<HomeDirectory>:/bin/bash
+    ```
