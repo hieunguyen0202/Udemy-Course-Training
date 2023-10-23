@@ -48,6 +48,8 @@
 - Show defined lines from a file
   ```
     sed -n 3,5p test
+  # All from the top except 3-5 last line
+      sed 3,5p test
 
     ```
 - Substitute within `vi` editor
