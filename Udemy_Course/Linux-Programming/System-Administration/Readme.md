@@ -9,14 +9,14 @@
 ## "sed" Command
 - Replace a string  in a file with a newstring
     ```
-    sed 's/oldWord/newWord/g' file
+    sed 's/<oldWord>/<newWord>/g' file
    # g: replace entire the file
-    sed -i 's/oldWord/newWord/g' file
+    sed -i 's/<oldWord>/<newWord>/g' file
     ```
 - Remove the string from file
     ```
-    sed 's/removeWord//g' file
-    sed -i 's/removeWord//g' file
+    sed 's/<removeWord>//g' file
+    sed -i 's/<removeWord>//g' file
     ```
     
 - Find and delete a line
