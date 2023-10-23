@@ -77,3 +77,7 @@
       ls -l
       ls -ltr      
       ```
+   - `groupadd`:
+     ```
+     vbdfbd
+     ```
