@@ -65,3 +65,15 @@
     - /etc/shadow
 - Commands
     - `useradd`:
+      ```
+      // User root dỉrectory
+      su -
+      // Enter password
+      useradd newNameUser
+      // check ID user
+      id newNameUser
+      // Check user
+      cd /home/
+      ls -l
+      ls -ltr      
+      ```
