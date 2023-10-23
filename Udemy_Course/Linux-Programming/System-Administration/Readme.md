@@ -46,4 +46,8 @@
     sed -i 's/ /\t/g' test
     ```
 - Show defined lines from a file
+  ```
+    sed -n 3,5p test
+
+    ```
 - Substitute within `vi` editor
