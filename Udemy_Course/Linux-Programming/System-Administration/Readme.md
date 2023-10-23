@@ -37,5 +37,11 @@
     sed -i '1,2d' test
     ```
 - To replace tabs with spaces
+    ```
+    # Not change
+    sed 's/\t/ /g' test
+    # Change real
+    sed -i 's/\t/ /g' test
+    ```
 - Show defined lines from a file
 - Substitute within `vi` editor
