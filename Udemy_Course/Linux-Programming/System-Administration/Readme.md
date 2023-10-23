@@ -49,7 +49,7 @@
   ```
     sed -n 3,5p test
   # All from the top except 3-5 last line
-      sed 3,5p test
+      sed 3,5d test
 
     ```
 - Substitute within `vi` editor
