@@ -64,7 +64,7 @@
     - /etc/group
     - /etc/shadow
 - Commands
-    - `useradd`:
+    - useradd:
       ```
       // User root dỉrectory
       su -
@@ -77,7 +77,7 @@
       ls -l
       ls -ltr      
       ```
-   - `groupadd`:
+   - groupadd:
      ```
      vbdfbd
      ```
