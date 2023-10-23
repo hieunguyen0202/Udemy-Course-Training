@@ -52,4 +52,8 @@
       sed 3,5d test
 
     ```
+- Enter space every line
+  ```
+    sed G test
+    ```
 - Substitute within `vi` editor
