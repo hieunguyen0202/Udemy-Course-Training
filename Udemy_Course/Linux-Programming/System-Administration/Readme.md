@@ -120,3 +120,10 @@
     // Check
     id UserName
     ```
+  - Create password for new user
+    ```
+    passwd UserName
+    // Enter new Password
+    // Retype Password again
+    
+    ```
