@@ -19,7 +19,11 @@
     sed -i 's/<removeWord>//g' file
     ```
     
-- Find and delete a line
+- Find and delete a line has this `string`
+```
+sed '/<string>/d' test
+sed -i '/<string>/d' test
+```
 - Remove empty lines
 - Remove the first or n lines in a file
 - To replace tabs with spaces
