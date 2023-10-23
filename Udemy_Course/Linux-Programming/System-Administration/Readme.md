@@ -20,7 +20,7 @@
     ```
     
 - Find and delete a line has this `string`
-    ```
+-  ```
     sed '/<string>/d' test
     sed -i '/<string>/d' test
     ```
