@@ -25,6 +25,10 @@
     sed -i '/<string>/d' test
     ```
 - Remove empty lines
+    ```
+    sed '/^$/d' test
+    sed -i '/^$/d' test
+    ```
 - Remove the first or n lines in a file
 - To replace tabs with spaces
 - Show defined lines from a file
