@@ -341,7 +341,17 @@ chage -m 5 -M 90  -W 10 -I 3 -E
            crontab -r
            ```
 
-    - `at`: just like `crontab`
-    
+    - `at`: At command is like crontab, which allows you to schedule jobs. 
+       - When the command is run, it will enter interactive mode, and you could get out of that mode by pressing the control D.
+       - Usage:
+         - `at HH:MM PM` = Schedule job
+         - `atq` = List the at entries
+         - `atrm <index of entries>` or `atrm #`: Remove one or all entries
+         - `systemctl status atd`= To mamage the atd service
+         - Example: Run this command `at 4:45PM` and hit ENTER, type `echo "This is my first" > at-entry`, finally hit `Ctrl D` to exit
+         - Others:
+         - ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/f83edb8d-abd4-4a83-8533-51aeee608e3f)
+
+             
   
   
