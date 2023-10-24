@@ -294,6 +294,29 @@ chage -m 5 -M 90  -W 10 -I 3 -E
          - `top then M and P`: To sort all Linux running processes by Memory usage
          - `Please note`: Top command refreshes the information every 3 seconds
     - `kill`: kill the process name or kills by the process id
+      - Kill command is used to terminate processes manually
+      - It sends a signal ultimately terminates or kills a particular process or group of processes
+      - Usage: `kill [OPTION] [PID]
+      - `OPTION`: Signal name or signal number/ID
+      - `PID`: Process ID
+      - `kill -l`: to get a list of all signal names or signal number
+      - `kill [PID]`(mostly use): Kil a process with default signal
+      - `kill -1 [PID]`: Restart
+      - `kill -2 [PID]`: Interrupt from the keyboard just like Ctrl C 
+      - `kill -9 [PID]`: Forcefully kill the process
+      - `Tip`: Using `top` or `ps -ef` to list a process ID
+      - Example:
+            ```
+            // Open new terminal and type this command
+                sleep 50
+            //Open other terminal
+                ps -ef | grep sleep
+            // kill this process, given that: 655 is PID of sleep's process
+                kill -9 655
+            ```
+     - Other similar kill commands are:
+        - `killall`: This is going to kill all the process
+        - `pkill`: Pkill allows you to kill by the process name. So let's say if you do not have a process ID, then you could actually simply use pkill to kill a process by its name.
     - `crontab`: is used to schedule these application or these process or services for you in your system
     - `at`: just like `crontab`
     
