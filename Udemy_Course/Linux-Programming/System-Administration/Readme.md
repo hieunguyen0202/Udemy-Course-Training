@@ -128,3 +128,9 @@
     
     ```
 ## Enable Password Aging
+That file is actually controls how the passwords age minimum maximun is set for each user
+```
+whoami
+more /etc/login.defs
+
+```
