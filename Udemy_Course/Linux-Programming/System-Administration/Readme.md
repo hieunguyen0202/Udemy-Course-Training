@@ -140,3 +140,19 @@ grep Test /etc/shadow
 chage -m 5 -M 90  -W 10 -I 3 -E
 ```
 ## Switch Users and Sudo Access (su, sudo)
+- `su - username`: switch from one user to another
+  ```
+  ifconfig
+  // check IP and using Putty to access user
+  whoami
+  //Example: oldUser
+  su - NewUser
+  exit
+  // Change root
+  su -
+  //Example: root
+  
+  ```
+- `sudo command`: If you do not have root privileges
+- `visudo`: edits the etc sudo or file which is a configiration file th at allow user to add or remove the rights to run the certain commands.
+- File : `/etc/sudoers`
