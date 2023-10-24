@@ -204,8 +204,8 @@ chage -m 5 -M 90  -W 10 -I 3 -E
   Hi NameUser, please stop the logged into the system
   --Press `Ctrl + D`
   ```
-  ## Linux Directory Service - Account Authentication
-  ## System Utility Commands (date, uptime, hostname, uname, which, cal, bc)
+## Linux Directory Service - Account Authentication
+## System Utility Commands (date, uptime, hostname, uname, which, cal, bc)
   - `date`
   - `uptime`:
   - `hostname`
@@ -228,7 +228,7 @@ chage -m 5 -M 90  -W 10 -I 3 -E
     bc
     using `quit` to exit
     ``` 
-  ## Processes, Jobs and Scheduling
+## Processes, Jobs and Scheduling
     - `Process`: when you run an application or when you start up an application, it actually generate process
     - `Thread`: Every process could have multiple threads
     - `job`: is something that is created by scheduler, like Workorder to run those application and services
