@@ -204,5 +204,31 @@ chage -m 5 -M 90  -W 10 -I 3 -E
   Hi NameUser, please stop the logged into the system
   --Press `Ctrl + D`
   ```
+  ## Linux Directory Service - Account Authentication
+  ## System Utility Commands (date, uptime, hostname, uname, which, cal, bc)
+  - `date`
+  - `uptime`:
+  - `hostname`
+  - `uname` | `uname -a`
+  - `which` : Tell you the location of your command that you run
+    ```
+    which pwd
+    ls -l /usr/bin/pwd
+    // To see how many command in your linux system
+    ls -l | wc -l
+    ```
+  - `cal`: give the calendar
+    ```
+    // cal <month> <year>
+    cal 9 1997
+    cal 1996
+    ```
+  - `bc`: show caculator on the terminal
+    ```
+    bc
+    using `quit` to exit
+    ``` 
+    
+    
   
   
