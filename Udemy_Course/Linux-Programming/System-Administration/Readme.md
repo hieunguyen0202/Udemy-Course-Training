@@ -166,7 +166,7 @@ chage -m 5 -M 90  -W 10 -I 3 -E
 - File : `/etc/sudoers`
 ## Monitor Users (who, last, w, id)
 - `who`: tell you how many people logged into the system
-- `last': tell you all the detail of every user that have been logged in
+- `last`: tell you all the detail of every user that have been logged in
   ```
   last
   // The last time, the user logged in 
@@ -182,4 +182,27 @@ chage -m 5 -M 90  -W 10 -I 3 -E
   man who
   ```
 ## Talking to Users (users, wall, write)
-
+- `users`: To see how many users logged into the system
+- `wall`: is the command that is broadcast your message to everyone who is logged into the Linux System
+- `write`: is dedicated to a user. It's just one user to another
+- Example
+  ```
+  // Using Putty and login
+  ifconfig | more
+  users
+  ```
+  Another command line
+  ```
+  wall
+  PLease logoff, this system is coming down for maintenance
+  PLease press `Ctrl + D` to exit
+  ```
+  So, the other terminal will show the same message
+  ```
+  // To tell the specific user
+  write <NameUser>
+  Hi NameUser, please stop the logged into the system
+  --Press `Ctrl + D`
+  ```
+  
+  
