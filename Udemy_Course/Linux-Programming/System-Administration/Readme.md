@@ -359,6 +359,7 @@ chage -m 5 -M 90  -W 10 -I 3 -E
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/8dbc454c-0e27-41d9-9375-f41a138382bf)
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/1cdf56a6-eceb-430c-828f-c6af931ffa24)
 ## Process Management (bg, fg, nice)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/0158aa0d-99fd-4400-9cce-ebc6c2aafd43)
 
              
   
