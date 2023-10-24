@@ -129,6 +129,9 @@
     ```
 ## Enable Password Aging
 That file is actually controls how the passwords age minimum maximun is set for each user
+
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/b994ddbb-7d5e-4b55-9b96-029c0d42901f)
+
 ```
 whoami
 more /etc/login.defs
@@ -136,3 +139,4 @@ useradd TestUser
 grep Test /etc/shadow
 chage -m 5 -M 90  -W 10 -I 3 -E
 ```
+## Switch Users and Sudo Access (su, sudo)
