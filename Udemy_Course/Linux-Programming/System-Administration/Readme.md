@@ -351,6 +351,14 @@ chage -m 5 -M 90  -W 10 -I 3 -E
          - Example: Run this command `at 4:45PM` and hit ENTER, type `echo "This is my first" > at-entry`, finally hit `Ctrl D` to exit
          - Others:
          - ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/f83edb8d-abd4-4a83-8533-51aeee608e3f)
+## Additional cronjobs (hourly, daily, weekly, monthly)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/8f6ab69c-4216-4fcf-9c57-db26e6ae1daa)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/8b3251ee-7131-4b3b-9f7d-c4a4ced3166d)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/09c98be3-75a8-41d5-b9fc-691cc42a2d03)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/8bd2a69e-760f-402b-a74c-5464f521e978)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/8dbc454c-0e27-41d9-9375-f41a138382bf)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/1cdf56a6-eceb-430c-828f-c6af931ffa24)
+## Process Management (bg, fg, nice)
 
              
   
