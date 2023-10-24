@@ -154,7 +154,7 @@ chage -m 5 -M 90  -W 10 -I 3 -E
   //Example: root
   ```
 - `sudo command`: If you do not have root privileges
-   Example:
+  Example:
   ```
   // Instead switch root to run the command that has `Permission denied`
   su -
@@ -164,3 +164,22 @@ chage -m 5 -M 90  -W 10 -I 3 -E
   ```
 - `visudo`: edits the etc sudo or file which is a configiration file th at allow user to add or remove the rights to run the certain commands.
 - File : `/etc/sudoers`
+## Monitor Users (who, last, w, id)
+- `who`: tell you how many people logged into the system
+- `last': tell you all the detail of every user that have been logged in
+  ```
+  last
+  // The last time, the user logged in 
+  last | more
+  last | awk '{print $1}'
+  // remove the duplicate
+  last | awk '{print $1}' | sort | uniq
+  // Other
+  w
+  id
+  id userName
+  // Help
+  man who
+  ```
+## Talking to Users (users, wall, write)
+
