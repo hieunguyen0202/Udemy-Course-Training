@@ -228,7 +228,18 @@ chage -m 5 -M 90  -W 10 -I 3 -E
     bc
     using `quit` to exit
     ``` 
-    
+    ## Processes, Jobs and Scheduling
+    - `Process`: when you run an application or when you start up an application, it actually generate process
+    - `Thread`: Every process could have multiple threads
+    - `job`: is something that is created by scheduler, like Workorder to run those application and services
+    Process/ Services Commands
+    - `systemctl` or `service`
+      
+    - `ps`: to see what processes running in your linux system
+    - `top`: See all your process running in your system depeding on which  process you want to see first, CPU, memory information
+    - `kill`: kill the process name or kills by the process id
+    - `crontab`: is used to schedule these application or these process or services for you in your system
+    - `at`: just like `crontab`
     
   
   
