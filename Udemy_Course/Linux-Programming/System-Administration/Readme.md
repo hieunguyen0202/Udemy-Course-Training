@@ -234,7 +234,18 @@ chage -m 5 -M 90  -W 10 -I 3 -E
     - `job`: is something that is created by scheduler, like Workorder to run those application and services
     Process/ Services Commands
     - `systemctl` or `service`
-      
+      ```
+      systemctl start|stop|status servicename.service
+      systemctl enable|disable servicename.service
+      systemctl restart|reload servicename.service
+      systemctl list-units --all
+      ```
+      - To add a service under systemctl management
+        Create a unit file in `/etc/systemd/system/servicename.service
+      - To control system with systemctl
+         - `systemctl poweroff`
+         - `systemctl halt`
+         - `systemctl reboot`
     - `ps`: to see what processes running in your linux system
     - `top`: See all your process running in your system depeding on which  process you want to see first, CPU, memory information
     - `kill`: kill the process name or kills by the process id
