@@ -306,14 +306,14 @@ chage -m 5 -M 90  -W 10 -I 3 -E
       - `kill -9 [PID]`: Forcefully kill the process
       - `Tip`: Using `top` or `ps -ef` to list a process ID
       - Example:
-            ```
+        ```
             // Open new terminal and type this command
                 sleep 50
             //Open other terminal
                 ps -ef | grep sleep
             // kill this process, given that: 655 is PID of sleep's process
                 kill -9 655
-            ```
+        ```
        - Other similar kill commands are:
             - `killall`: This is going to kill all the process
             - `pkill`: Pkill allows you to kill by the process name. So let's say if you do not have a process ID, then you could actually simply use pkill to kill a process by its name.
