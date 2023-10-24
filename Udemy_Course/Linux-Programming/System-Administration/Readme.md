@@ -261,6 +261,38 @@ chage -m 5 -M 90  -W 10 -I 3 -E
       - `ps -ef | grep <NameofProcess>`
   
     - `top`: See all your process running in your system depeding on which  process you want to see first, CPU, memory information
+      ```
+      Top command is used to show the Linux processes and it provides a real time view of the running system.
+      This command shows the summary information of the system and the list of processes or threads which are currently managed by the Linux kernel.
+      Now, when you run the top command or when it is executed, it actually goes into an interactive mode and you could run a commands within that interactive mode.
+      Now, if you want to get out of that interactive mode, then you have to hit `Q` on your keyboard to get out of it.
+      ```
+      Example
+      ```
+      whoami
+      pwd
+      hostname
+      top
+      //exit
+      press q
+      ```
+      - `PID`: Show task's unique process id
+      - `USER`: Username of owner of task
+      - `PR`: The PR field shows the scheduling priority of the process from the perspective of the kernel
+      - `NI`: Represents a Nice Value of task. A `negative` nice implies higher priority, and `positive` nice means lower priority
+      - `VIRT`: Total virtual memory used by the task
+      - `RES`: Memory consumed by the process in RAm
+      - `SHR`: Represents the amounts of shared memory used by a task
+      - `S`: Thi sfield shows the process state in the single-letter form
+      - `%CPU`: Represent the CPU usage
+      - `%MEM`: Shows the memory usage of task
+      - `TIME+`: CPU time, the same as `TIME`, but reflecting more graularity through hundredths of a second
+      - `COMMAND LINE`:
+         - `top -u <userName>`:  shows tasks/processes by user owned
+         - `top then press c`: shows commands absolute path
+         - `top then press k`: kill a process by PID within top session
+         - `top then M and P`: To sort all Linux running processes by Memory usage
+         - `Please note`: Top command refreshes the information every 3 seconds
     - `kill`: kill the process name or kills by the process id
     - `crontab`: is used to schedule these application or these process or services for you in your system
     - `at`: just like `crontab`
