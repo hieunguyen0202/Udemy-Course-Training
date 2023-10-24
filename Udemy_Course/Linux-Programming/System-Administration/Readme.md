@@ -360,7 +360,13 @@ chage -m 5 -M 90  -W 10 -I 3 -E
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/1cdf56a6-eceb-430c-828f-c6af931ffa24)
 ## Process Management (bg, fg, nice)
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/0158aa0d-99fd-4400-9cce-ebc6c2aafd43)
-
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/6ce2a561-fc68-4b00-9e2e-37af2e56baad)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/e395a5ef-d8c2-4a4f-95c7-85cfcee60a2c)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/7ca2350c-570d-4a26-bc20-1819e16ff624)
+Now how do we run a process without interrupting the process when we close our terminal?
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/5620733d-db3c-41ef-a81c-834f4df7d4bb)
              
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/c3e234e2-ddf2-476a-81e4-8c5cca88084a)
   
-  
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/778a941c-f2b7-4ba5-81fd-3d452bee6154)
+"Hey CPU I have this process - 'sleep 10' and please give this process priority 5, which is not too high, which is not too low". It will get tell that to the CPU and CPU will process that according to the command of "nice".
