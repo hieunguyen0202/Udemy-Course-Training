@@ -132,5 +132,7 @@ That file is actually controls how the passwords age minimum maximun is set for 
 ```
 whoami
 more /etc/login.defs
-
+useradd TestUser
+grep Test /etc/shadow
+chage -m 5 -M 90  -W 10 -I 3 -E
 ```
