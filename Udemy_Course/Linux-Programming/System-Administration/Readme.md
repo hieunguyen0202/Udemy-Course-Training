@@ -247,6 +247,19 @@ chage -m 5 -M 90  -W 10 -I 3 -E
          - `systemctl halt`
          - `systemctl reboot`
     - `ps`: to see what processes running in your linux system
+      ```
+      So an example would be by just running the ps command, which will show you the processes of the current shell.
+      PID = the unique process ID
+      TTY = terminal type that the user logged-in to
+      TIME = amount of CPU in minutes and seconds that the  process has been running
+      CMD = name of the command
+      ```
+      - `ps -e`: Shows all running processes
+      - `ps aux`: Shows all runnning processes in BSD (Berkeley Systems Description) format
+      - `ps -ef`: Shows all running processes in full format listing (Most common used)
+      - `ps -u <username> = Shows all processes by username
+      - `ps -ef | grep <NameofProcess>
+  
     - `top`: See all your process running in your system depeding on which  process you want to see first, CPU, memory information
     - `kill`: kill the process name or kills by the process id
     - `crontab`: is used to schedule these application or these process or services for you in your system
