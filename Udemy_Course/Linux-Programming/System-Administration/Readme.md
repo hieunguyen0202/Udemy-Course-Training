@@ -318,6 +318,29 @@ chage -m 5 -M 90  -W 10 -I 3 -E
             - `killall`: This is going to kill all the process
             - `pkill`: Pkill allows you to kill by the process name. So let's say if you do not have a process ID, then you could actually simply use pkill to kill a process by its name.
     - `crontab`: is used to schedule these application or these process or services for you in your system
+      - You run certain commands almost every day, at the same time to do the same thing. So why not use the crontab?
+      - Some common command:
+         - `crontab -e` =  Edit the crontab
+         - `crontab -l` = List the crontab entries
+         - `crontab -r` = Remove the crontab
+         - `crond`(little use):
+         - `systemctl status crond` = To manage/check the crond service
+         - ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/0f385eef-02a3-457d-ad25-77167786ca27)
+         - Example:
+           ```
+           // check date
+           date
+           // Example
+           crontab -e
+           21(minutes) 16(hour) *(every day) 10(month) *(fullDay) echo "This is my first command" > first-crontab
+           21 16 * 10 * echo "This is my first command" > first-crontab
+           // To see content in edit crontab 
+           crontab -l
+           // Waiting for given time, this command `echo "This is my first command" > first-crontab` will be executed
+           // To remove
+           crontab -r
+           ```
+
     - `at`: just like `crontab`
     
   
