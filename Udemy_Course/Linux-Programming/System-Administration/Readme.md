@@ -257,8 +257,8 @@ chage -m 5 -M 90  -W 10 -I 3 -E
       - `ps -e`: Shows all running processes
       - `ps aux`: Shows all runnning processes in BSD (Berkeley Systems Description) format
       - `ps -ef`: Shows all running processes in full format listing (Most common used)
-      - `ps -u <username> = Shows all processes by username
-      - `ps -ef | grep <NameofProcess>
+      - `ps -u` <username> = Shows all processes by username
+      - `ps -ef | grep <NameofProcess>`
   
     - `top`: See all your process running in your system depeding on which  process you want to see first, CPU, memory information
     - `kill`: kill the process name or kills by the process id
