@@ -228,7 +228,7 @@ chage -m 5 -M 90  -W 10 -I 3 -E
     bc
     using `quit` to exit
     ``` 
- ## Processes, Jobs and Scheduling
+    ## Processes, Jobs and Scheduling
     - `Process`: when you run an application or when you start up an application, it actually generate process
     - `Thread`: Every process could have multiple threads
     - `job`: is something that is created by scheduler, like Workorder to run those application and services
