@@ -141,6 +141,7 @@ chage -m 5 -M 90  -W 10 -I 3 -E
 ```
 ## Switch Users and Sudo Access (su, sudo)
 - `su - username`: switch from one user to another
+  Example: 
   ```
   ifconfig
   // check IP and using Putty to access user
@@ -151,8 +152,15 @@ chage -m 5 -M 90  -W 10 -I 3 -E
   // Change root
   su -
   //Example: root
-  
   ```
 - `sudo command`: If you do not have root privileges
+   Example:
+  ```
+  // Instead switch root to run the command that has `Permission denied`
+  su -
+  visudo
+  // We use the `sudo command`
+  sudo visudo
+  ```
 - `visudo`: edits the etc sudo or file which is a configiration file th at allow user to add or remove the rights to run the certain commands.
 - File : `/etc/sudoers`
