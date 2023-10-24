@@ -314,9 +314,9 @@ chage -m 5 -M 90  -W 10 -I 3 -E
             // kill this process, given that: 655 is PID of sleep's process
                 kill -9 655
             ```
-     - Other similar kill commands are:
-        - `killall`: This is going to kill all the process
-        - `pkill`: Pkill allows you to kill by the process name. So let's say if you do not have a process ID, then you could actually simply use pkill to kill a process by its name.
+       - Other similar kill commands are:
+            - `killall`: This is going to kill all the process
+            - `pkill`: Pkill allows you to kill by the process name. So let's say if you do not have a process ID, then you could actually simply use pkill to kill a process by its name.
     - `crontab`: is used to schedule these application or these process or services for you in your system
     - `at`: just like `crontab`
     
