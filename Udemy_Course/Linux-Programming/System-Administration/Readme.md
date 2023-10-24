@@ -370,3 +370,4 @@ Now how do we run a process without interrupting the process when we close our t
   
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/778a941c-f2b7-4ba5-81fd-3d452bee6154)
 "Hey CPU I have this process - 'sleep 10' and please give this process priority 5, which is not too high, which is not too low". It will get tell that to the CPU and CPU will process that according to the command of "nice".
+## System Monitoring Commands (df, dmesg, iostat 1, netstat, free, top)
