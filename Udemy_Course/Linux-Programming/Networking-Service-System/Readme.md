@@ -93,7 +93,31 @@ There are many network files and commands that needs to be used in order to conf
         ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/f4b4b002-23ef-47cf-993b-6d7882605270)
 Now we will have two NICs on our computer, which is one here, Adapter 1, and Adapter 2. If you want more adapters, you could go to Adapter 3 and 4 and check on Enable Network Adapter.
 - Step 8: Click on `OK`
-  
+- Step 9: Click on `Start`
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/2f3b9811-49aa-444b-9c45-ea41df9b1783)
+After that, run command `ifconfig | more`, you will see like a picture:
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/041cc4ba-f3de-456a-abea-242d989c2308)
+Now we have two network interfaces. One is `enp0s3`, and the second one is `enp0s8`. `enp0s8` is the one that we just added through our Oracle Virtual Box. Now what we want to do is we want to combine these two, 3 and 8, together, and make a bond out of these two interfaces.
+- Step 10: open terminal
+    ```
+    su -
+    modprobe bonding | more
+    ```
+    ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/8b223e9c-85fa-4c7c-a1a2-d0a4d4073b6c)
+`Ethernet Channel Bonding Driver v3.7.1`, that means you already have the driver installed, which is the modprobe in Linux, so you don't have to worry about installing it.
+    ```
+    vi /etc/sysconfig/network-scripts/ifcfg-bond0
+    ```
+    And typing exactly the picture:
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/58504051-9988-4c53-b4ef-48d43865b4ef)
+    ```
+    cd /etc/sysconfig
+    cd network-scripts/
+    vi ifcfg-enp0s3
+    ```
+    When the interactive mode is show, you delete all the conetent and retype the same content in picture below (`HWADDR` get this information from `ifconfig | more`)
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/704e13be-9d1f-41a6-8a50-bff1cddca343)
+
 
 ## NIC or Port Bonding
 
