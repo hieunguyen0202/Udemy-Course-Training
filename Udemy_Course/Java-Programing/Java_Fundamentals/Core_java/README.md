@@ -301,6 +301,7 @@ public class  Demo{
 ```
 - Anonymous simply means something which doesn't have a name.
 - Instead of using this code below, yuo can use this code above. The advantage is that you don't need to create a new class and extends the parent class.
+- Two ways have the same result.
 ```java
 class A
 {
@@ -322,6 +323,42 @@ public class  Demo{
     	
     	A obj=new B();
     	obj.show();
+    }
+}
+```
+## Abstract and anonymous inner class
+
+```java
+abstract class A
+{
+	public abstract void show();
+	public abstract void config();
+
+}
+
+//class B extends A
+//{
+//	public void show()
+//	{
+//		System.out.println("in B show");
+//	}
+//}
+
+
+public class  Demo{
+    public static void main(String[] args) {
+    	
+//    	A obj=new B();
+    	
+    	A obj=new A() 
+    	{
+    		public void show()
+    		{
+    			System.out.println("in new show");
+    		}
+    	};
+    	obj.show();
+    	
     }
 }
 ```
