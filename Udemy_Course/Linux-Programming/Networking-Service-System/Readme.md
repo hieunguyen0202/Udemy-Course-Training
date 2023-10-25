@@ -117,8 +117,12 @@ Now we have two network interfaces. One is `enp0s3`, and the second one is `enp0
     ```
     When the interactive mode is show, you delete all the conetent and retype the same content in picture below (`HWADDR` get this information from `ifconfig | more`)
   ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/704e13be-9d1f-41a6-8a50-bff1cddca343)
-
-
+- Step 11: Type `cp ifcfg-enp0s3 ifcfg-enp0s8` and `vi ifcfg-enp0s8` and change `DEVICE` = enp0s8, `HWADDR` get this information from `ifconfig | more`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/b29a52f3-659f-430d-b82e-ac0ebd3df227)
+- Step 12: run the command `systemctl restart network` and check the result `ifconfig | more`
+ ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/a21b7814-324d-48fb-bf60-775ea1a6311f)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bd9dfc2e-6e46-49a8-b4c4-dba62b36013b)
+- Step 13: Check more information `cat /proc/net/bonding/bond0`
 ## NIC or Port Bonding
 
 ## New Network Utilities (nmtui, nmcli, nm-connection-editor and GNOME Settings)
