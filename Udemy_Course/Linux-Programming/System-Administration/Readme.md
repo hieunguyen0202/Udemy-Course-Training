@@ -445,3 +445,6 @@ Every time you log into a Linux machine, it is very important for everyone to kn
 - You could run 32-bit applications on a 64-bit system. However, you cannot run 64-bit applications on a 32-bit system.
 - In Linux, the command to find out whether it's a 32-bit system or 64 it's just by running a simple command
   ```
+  arch
+  uname -a
+  ```
