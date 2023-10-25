@@ -108,8 +108,8 @@ public class  Demo{
     }
 }
 ```
-- override method(): toString()
-- equals(Object obj)
+- If you print(obj), it will print value it has default return value of funtion toString(), So, If you want to change, please override method(): toString()
+- Using `equals(Object obj)` to compare two object
 ## 59. Upcasting and Downcasting
 #### [Downcasting](https://github.com/markdown-it/markdown-it-emoji) 
 ```java
