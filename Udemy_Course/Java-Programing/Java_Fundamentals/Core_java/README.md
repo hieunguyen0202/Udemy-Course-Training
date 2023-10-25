@@ -224,6 +224,8 @@ public class  Demo{
     }
 }
 ```
+- The Abstract class it means: You don't need to implement the method
+- If I remove `abstract` from `abstract class WagnoR extends Car`, the syntax error will apear. Because you didn't implement all method (Particularly `public void fly()`). To solve that problem, the simple way is add keyword `abstract` in a head of method and create the `class UpdateWagnoR` extends WagnoR to implement `public void fly()` method.
 ## 60. Wrapper Class
 ```java
  public static void main(String[] arg[])
