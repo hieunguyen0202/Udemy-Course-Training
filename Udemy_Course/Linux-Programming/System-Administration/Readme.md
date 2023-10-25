@@ -401,9 +401,10 @@ Log Directory = /var/log
    // whenever you schedule a job or a process through a cron tab entry, it generates some kind of activity and that activity or that record is logged into this file.
    more maillog
    // has all the information about your Send Mail daemon.has all the information about your Send Mail daemon.
-   ```
+   
    more secure
   // all the users that have been logged in, if they have failed logging in,\
   cat messages | wc -l
   grep -i error
-  // grepped every line inside of this log file that has a message called error. 
+  // grepped every line inside of this log file that has a message called error.
+   ```
