@@ -495,6 +495,7 @@ An environment variable is a dynamic-named value that can affect the way running
     - `export TEST=1`
     - `echo $TEST`
 - To set environment variable permanently
+    - Go to the home directory and type command `cp .bashrc bashrc.orig`
     - `vi .bashrc`
     - `TEST='123'`
     - `export TEST`
@@ -502,3 +503,4 @@ An environment variable is a dynamic-named value that can affect the way running
     - `vi /etc/profile or /etc/bashrc`
     - `TEST='123'`
     - `export TEST`
+- To use the environment variable `cd $TEST`, can try more other command
