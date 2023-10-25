@@ -504,3 +504,6 @@ An environment variable is a dynamic-named value that can affect the way running
     - `TEST='123'`
     - `export TEST`
 - To use the environment variable `cd $TEST`, can try more other command
+## Special Permissions with setuid, setgid and stick bit
+- `r w x`-Users `r w x`-Groups `r w x`-Others
+- 
