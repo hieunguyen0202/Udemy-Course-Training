@@ -266,6 +266,65 @@ public class  Demo{
 ```
 - Case 1: If you remove `static` from `static class B`, you must be use `A.B obj1=obj.new B();` because you need to create the object first, and you can be able to access the attribute of the class (Indicate: class B(non-static) belong to class A)
 - Case 2: Becasue the `static class B` is static, so that's why you can be able to use `A.B obj1=new A.B();` to access the attribute of the class.
+## 68. Anonymous Inner class
+```java
+class A
+{
+	public void show() 
+	{
+		System.out.println("in A show");
+	}
+}
+//class B extends A
+//{
+//	public void show()
+//	{
+//		System.out.println("in B Show");
+//	}
+//}
+
+public class  Demo{
+    public static void main(String[] args) {
+    	
+    	//A obj=new B();
+    	
+    	A obj=new A() 
+    	{
+    		public void show()
+    		{
+    			System.out.println("in new show");
+    		}
+    	};
+    	obj.show();
+    }
+}
+```
+- Anonymous simply means something which doesn't have a name.
+- Instead of using this code below, yuo can use this code above. The advantage is that you don't need to create a new class and extends the parent class.
+```java
+class A
+{
+	public void show() 
+	{
+		System.out.println("in A show");
+	}
+}
+class B extends A
+{
+	public void show()
+	{
+		System.out.println("in B Show");
+	}
+}
+
+public class  Demo{
+    public static void main(String[] args) {
+    	
+    	A obj=new B();
+    	obj.show();
+    }
+}
+```
 ## 60. Wrapper Class
 ```java
  public static void main(String[] arg[])
