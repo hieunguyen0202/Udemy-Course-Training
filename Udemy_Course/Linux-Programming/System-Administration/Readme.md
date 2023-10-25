@@ -408,3 +408,40 @@ Log Directory = /var/log
   grep -i error
   // grepped every line inside of this log file that has a message called error.
    ```
+  ## System Maintenance Commands (shutdown, init, reboot, halt)
+  - `shutdown`
+  - `init`: Now init has a different level of bringing the system down or rebooting. It goes anywhere from zero to seven, zero for simply shut down, and six is to reboot, and three is to bring it in multi-user mode.
+  - `reboot` or `init 6`: Reboot simply reboots your computer. Shuts it down, and it poweroff, and bring it back online.
+  - `halt`: if there are any processes that are running that needs some time to bring down other process, halt doesn't care. It just shuts down right away.
+  ## Changing System Hostname (hostnamectl)
+  - `hostnamectl set-hostname newhostname`
+  - `hostname` or `cat /etc/hostname`
+  - Version 7 = Edit /etc/hostname
+  - Version 6 = Edit /etc/sysconfig/network
+  - And, right now when you type `hostname`, this is the name of our machine. Now I want to change this hostname to a different hostname because my company came up with a new standard. Now every machine has to comply with the new standard requirement. So that's why I want to change it. So in order to change a hostname, you have to first become root, using `su -`
+  - And Because this shell that I'm logged into, this shell has to be restarted or the whole system has to reboot in order to read the new hostname that we created.
+  - Other way to change the hostname
+    ```
+    su -
+    vi /etc/hostname
+    reboot
+    ```
+## Finding System Information (uname, dmidecode)
+Every time you log into a Linux machine, it is very important for everyone to know which system they are logged in terms of what operating system is running or what hardware it has underneath or what's under the hood.
+- `cat /etc/redhat-release`: give you the information about its operating system.  
+- `uname -a`: The uname -a, which will also give you the information about operating system and some kernel information
+- `dmidecode`: This command will also give you the information about processor memory, the hardware that's underneath the operating system.
+  ```
+  whoami
+  //If root
+  exit
+  pwd
+  ls -ltr
+  cat /etc/redhat-release
+  uname -a
+  dmidecode | more
+## Finding System Architecture (arch)
+- The main difference between 32 and 64-bit is the one that I highlighted in this paragraph which says a big difference between 32-bit processor and a 64-bit processor is the number of calculation per second they can perform.
+- You could run 32-bit applications on a 64-bit system. However, you cannot run 64-bit applications on a 32-bit system.
+- In Linux, the command to find out whether it's a 32-bit system or 64 it's just by running a simple command
+  ```
