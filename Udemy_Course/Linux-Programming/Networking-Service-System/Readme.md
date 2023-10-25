@@ -123,7 +123,8 @@ Now we have two network interfaces. One is `enp0s3`, and the second one is `enp0
  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/a21b7814-324d-48fb-bf60-775ea1a6311f)
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bd9dfc2e-6e46-49a8-b4c4-dba62b36013b)
 - Step 13: Check more information `cat /proc/net/bonding/bond0`
-## NIC or Port Bonding
+- ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/ef60a582-1f24-4e33-9260-b032d18b5666)
+
 
 ## New Network Utilities (nmtui, nmcli, nm-connection-editor and GNOME Settings)
 ## Downloading Files or Apps (get)
