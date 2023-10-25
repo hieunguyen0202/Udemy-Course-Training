@@ -29,7 +29,21 @@ Class.forName(className:"className");
 - Using private: it means it can be accessed in the same class.
 - Using protected: you can't use it outside the package. it works in the same package and subclass.
 ## 56. Dynamic Method Dispatch
-
+Like polymorphism
+```
+First:
+	A obj = new A();
+	obj.show();
+After:
+	obj = new B();
+	obj.show();
+```
+Stack:
+- First: obj with 101
+- After: obj with 103 
+Heap:
+- Object A have `show()` with address 101
+- Object B have `show()` with address 103
 ## 57. Final keyword
 #### [final variables](https://github.com/markdown-it/markdown-it-emoji) 
 - final = const in C++
