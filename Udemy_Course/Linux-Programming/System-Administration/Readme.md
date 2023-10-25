@@ -491,7 +491,7 @@ to them.
 An environment variable is a dynamic-named value that can affect the way running processes will behave on a computer. They are part of the environment in which a process runs.
 - To view all environment variables `printevn` or `env`
 - To view ONE environment variable `echo $SHELL`
-- to set the enviroment variables
+- To set the enviroment variables
     - `export TEST=1`
     - `echo $TEST`
 - To set environment variable permanently
