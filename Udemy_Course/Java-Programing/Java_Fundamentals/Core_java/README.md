@@ -356,11 +356,60 @@ public class  Demo{
     		{
     			System.out.println("in new show");
     		}
+		public void config()
+    		{
+    			System.out.println("in new config");
+    		}
     	};
     	obj.show();
     	
     }
 }
+```
+## 70. What is Interface
+- Now first of all, interface is not a class.
+- And by default, every method in the interface is public abstract.
+- So all the variables inside the interface are by default, final(const) and static.
+```java
+interface A
+{
+//	public abstract void show();
+//	public abstract void config();
+	int age=44;            // final and static 
+	String area="Mumbai";
+	
+	void show();
+	void config();
+}
+
+class B implements A
+{
+	public void show()
+	{
+		System.out.println("in show");
+	}
+	public void config()
+	{
+		System.out.println("in cofing");
+	}
+}
+
+public class Demo {
+    public static void main(String[] args) {
+
+    	A obj;
+    	obj=new B();
+    	
+    	obj.show();
+    	obj.config();
+    	
+ //   	A.area="Hyderabad"; // can't assign new value because the default of variables in interface is const
+    	
+    	System.out.println(A.area);
+        
+    }
+}
+
 ```
 ## 60. Wrapper Class
 ```java
