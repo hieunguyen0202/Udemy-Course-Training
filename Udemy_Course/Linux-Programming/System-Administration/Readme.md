@@ -448,3 +448,57 @@ Every time you log into a Linux machine, it is very important for everyone to kn
   arch
   uname -a
   ```
+## Terminal Control Keys
+- `Ctrl U`: erase everything you typed on the command line
+- `Ctrl C`: stop or kill command line
+- `Ctrl Z`: suspend a command, if you are running a process, and you're stuck in that process, CTRL-z will put the process in the background and will get you your prompt back.
+- `Ctrl D`: exit from an interactive program (signals end of data)
+## Terminal Commands (clear, exit, script)
+- `clear`: clear your screen on the command line
+- `exit` : Exit out of the shell, terminal or a user session
+- `script`: Script is a very helpful command. It's a command that stores terminal activities in a log file that can be named by a user. You could run it and you could name it anything that you want. Using it like the recording tool
+  Example:
+  ```
+  // Start recording activities in the log file
+  script logfile-activity.log
+  // type other command and to do anyhing else
+  // To exit the recording
+  exit
+  // to see the result
+  more logfile-activity.log
+  ```
+## Recover Root Password
+Every system administrator in his or her life faces this issue where they have to recover root password. And why do they face that? Is because they either have to comply with security standard to change the root password. Every now and then, they change it, but then they forget after a year or two or they fat fingered while changing the root password and now they cannot recover it. So how do we change it? You have to `restart your computer`, `Edit grub`,`Change password`, `reboot`.
+This is the step by step
+   ```
+   reboot
+   // remove ro and replace this 'rw init=/sysroot/bin/sh'
+   // Press Ctrl X
+   chroot /sysroot
+   passwd root
+   //retype new password
+   touch /.autorelabel
+   exit
+   reboot
+   ```
+## SOS Report
+- Anyway, so SOS is something that is called when someone is in really deep trouble and needs help. So this, based on the same idea Red Hat or CentOS has created something called SOS Report. It's a command. When you run that command it actually collects all the information about your files, your logs, put it into a package and it sends it out
+to them.
+- The purpose of this report? Collect and package diagnostic and support data.
+- Package name `sos-version`
+- Command `sosreport`
+## Environment Variables
+An environment variable is a dynamic-named value that can affect the way running processes will behave on a computer. They are part of the environment in which a process runs.
+- To view all environment variables `printevn` or `env`
+- To view ONE environment variable `echo $SHELL`
+- to set the enviroment variables
+    - `export TEST=1`
+    - `echo $TEST`
+- To set environment variable permanently
+    - `vi .bashrc`
+    - `TEST='123'`
+    - `export TEST`
+- To set global environment variable permanently
+    - `vi /etc/profile or /etc/bashrc`
+    - `TEST='123'`
+    - `export TEST`
