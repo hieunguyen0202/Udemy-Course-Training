@@ -371,3 +371,39 @@ Now how do we run a process without interrupting the process when we close our t
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/778a941c-f2b7-4ba5-81fd-3d452bee6154)
 "Hey CPU I have this process - 'sleep 10' and please give this process priority 5, which is not too high, which is not too low". It will get tell that to the CPU and CPU will process that according to the command of "nice".
 ## System Monitoring Commands (df, dmesg, iostat 1, netstat, free, top)
+- `top`: it has CPU information, memory information. It tells you which process it's on, which user it's running and what command it's running. If you wanna get out of it, hit Q.
+- `df`: DF gives you your disk partition information. It has this block, this is available, what percent is used. Now, the most common options that is used with `df -h`. H is easier. It's human readable. It's easy to understand. Any of the usage says 100%, then definitely you are in trouble and you need to free up your disk space and you need to find out how to free up your disk space.
+- `du`: It tells you the estimated file space usage, which file is taking up all the space.
+- `dmesg`: `dmeg | more` gives you the output of the system related warnings, error messages, failures or anything like that. gives you the BIOS information, what, when the system initialized, how it went to, what CPU. If there is any issues with the memory, it will report you right here, if there's a memory leak, if there's an issue with CPU that's crashed, motherboard issue, anything related to your system hardware will be listed here.
+- `iostat`: how we are communicating with our system peripheral devices or system internal devices, and `iostat 1` refresh it every one second.
+- `netstat -rnv`:  is the option that I mostly use if I wanted to find out my gateway information, and `netstat | more` see a lot of information. What is connected to your system, what has been disconnected, what's the process id, which process is it running, and the name of the owner of the process.
+- `free`: gives you the your physical memory and your swap space which is a virtual memory utilization, just usage and free.
+- `cat /proc/cpuinfo`: Every time your computer is started, it keeps all its system resources information into files. And those files are located in proc. This proc is the directory where it keeps us all system information. You'll find your CPU information right here.
+- `cat /proc/meminfo`: it's storing all that messages
+## System Logs Monitor (/var/log)
+Systems also have to keep logs and generate logs and record everything that goes on with the system.
+Log Directory = /var/log
+- `boot`:
+- `chronyd` = NTP which is a newer version of NTP.
+- `cron`
+- `maillog`
+- `secure`
+- `messages`: messages is one of the important logs that every system administrator uses to monitor system activities.
+- `httpd`: which is also an Apache application log.
+- Example:
+   ```
+   cd /var/log
+   ls -l or ll
+   ll | more
+   more boot.log   or ls  -l boot.log
+   // When you do more on boot.log I get a message says permission denied.
+   more cron
+   // whenever you schedule a job or a process through a cron tab entry, it generates some kind of activity and that activity or that record is logged into this file.
+   more maillog
+   // has all the information about your Send Mail daemon.has all the information about your Send Mail daemon.
+   ```
+   more secure
+  // all the users that have been logged in, if they have failed logging in,\
+  cat messages | wc -l
+  grep -i error
+  // grepped every line inside of this log file that has a message called error. 
