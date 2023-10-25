@@ -264,6 +264,8 @@ public class  Demo{
     }
 }
 ```
+- Case 1: If you remove `static` from `static class B`, you must be use `A.B obj1=obj.new B();` because you need to create the object first, and you can be able to access the attribute of the class (Indicate: class B(non-static) belong to class A)
+- Case 2: Becasue the `static class B` is static, so that's why you can be able to use `A.B obj1=new A.B();` to access the attribute of the class.
 ## 60. Wrapper Class
 ```java
  public static void main(String[] arg[])
@@ -276,6 +278,7 @@ public class  Demo{
       int num3  = Integer.parseInt(str); 
    } 
 ```
+
 ## Exception
 ```java
  public static void main(String[] arg[])
