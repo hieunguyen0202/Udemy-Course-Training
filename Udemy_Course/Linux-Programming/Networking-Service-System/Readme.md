@@ -85,8 +85,15 @@ There are many network files and commands that needs to be used in order to conf
         ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/1dc30ecd-f3e2-4c6f-810d-56c2e671da16)
 - Step 4: Click on `Settings`
         ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/99ad873b-d953-4adc-b342-7337cb958be3)
-
-        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/3e776ea3-152e-48f2-81f2-4400a737f05b)
+- Step 5: Go to `Network`
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/c16a2392-bce4-47cb-af9a-faf4c3735719)
+- Step 6: Click on `Adapter 2`
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/74d52ba5-13bc-4118-972e-69fc159d24c8)
+- Step 7: Select information that is the same in this picture
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/f4b4b002-23ef-47cf-993b-6d7882605270)
+Now we will have two NICs on our computer, which is one here, Adapter 1, and Adapter 2. If you want more adapters, you could go to Adapter 3 and 4 and check on Enable Network Adapter.
+- Step 8: Click on `OK`
+  
 
 ## NIC or Port Bonding
 
