@@ -474,7 +474,7 @@ public class Demo {
 ```
 ## 72. Need of Interface
 ```java
-/*
+
 
 abstract class Computer
 {
@@ -523,7 +523,7 @@ public class Demo {
         
     }
 }
-*/
+
 ```
 
 ```java
