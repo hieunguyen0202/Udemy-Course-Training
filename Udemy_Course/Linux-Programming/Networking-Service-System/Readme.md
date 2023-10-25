@@ -64,6 +64,31 @@ There are many network files and commands that needs to be used in order to conf
   - `lo` = Lo stands for loopback device is a special interface that your computer uses to communicate within itself. It works as a diagnostic and troubleshooting and to connect servers running on the local machine. Using the command `ethtool lo`
   - `virb0` = This stands for virtual bridge zero interface is used for NAT. NAT stands for network address translation. The virtual environment sometimes use it to connect to outside network. Using the command `ethtool virb0`
 ## NIC or Port Bonding
+- NIC bonding is one of the very important and critical aspect in Linux network configuration, and these type of questions are asked oftentimes in an interview.
+- ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bf4665c0-321d-4954-8b02-812b03ae8b3f)
+- We have these four NIC cards on our computer. So what we do with NIC bonding is we take two ports, we combine them together, and the reason we combine them is because what if one port dies? We still have another port. So this is for the `redundancy`.
+- So another way to make two ports redundant, or to have them high availability, is you combine them together. If a port is one gig, and the other port is one gig,
+ you combine them together to aggregate them and get the throughput of two gig. This is achieved for high availability and link `aggregation`.
+- Some command:
+    - `modprobe bonding`:
+    - `modinfo bonding`:
+    - Create `/etc/sysconfig/network-scripts/ifcfg-bond0`
+    - Edit `/etc/sysconfig/network-scripts/ethernet1`:
+    - Edit `/etc/sysconfig/network-scripts/ethernet2`:
+    - ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/1b78eb60-ad1d-4e1a-aa07-c37d62c5be01)
+    - Restart newwork = `systemctl restart network`
+- Step 1: Click on `Snapshots`
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/5b054852-16fb-4283-b6ce-c964a8017d74)
+- Step 2: Click on `take`
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/7bb86e4a-79c5-4653-bca7-17ddd264d36a)
+- Step 3: Click on `ok`
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/1dc30ecd-f3e2-4c6f-810d-56c2e671da16)
+- Step 4: Click on `Settings`
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/99ad873b-d953-4adc-b342-7337cb958be3)
+
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/3e776ea3-152e-48f2-81f2-4400a737f05b)
+
+## NIC or Port Bonding
 
 ## New Network Utilities (nmtui, nmcli, nm-connection-editor and GNOME Settings)
 ## Downloading Files or Apps (get)
