@@ -53,4 +53,19 @@ There are many network files and commands that needs to be used in order to conf
       - `ifconfig`: tells you what your interfaces are in the system. We have right now three interfaces
       - You have `ifup` or `ifdown`: If you want to bring down this interface, if you don't want a network, you could type `ifdown`. Or if you want to bring it back up, you type `ifup`.
       - `netstat`: you could run with different options, I run as usually with `netstat -rnv`. This one tells you your gateway, how your traffic is flowing.
-      - `tcpdump`: it actually traces every single transactions that are leaving your machine and coming into your machine. run `tcpdump -i enp0s3`. You'll see every listening coming in, coming, going out,
+      - `tcpdump`: it actually traces every single transactions that are leaving your machine and coming into your machine. run `tcpdump -i enp0s3`. You'll see every listening coming in, coming, going out.
+## NIC Information (ethtool)
+- `NIC` is  network interface card. That is something that is attaches to your computer, your desktop or your laptop. If you look at the back of your laptop, you will see that little port where you connect the ethernet five or six, cat five or six cable to it.
+- ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/28b37738-4201-413c-ae1c-2f6a91c93e54)
+- An example to find the information about the NIC is that you run a command ethtool followed by the name of your NIC `ethtool enp0s3`.
+- How do you find out the information about your NIC? You run the command `ifconfig` that will give you all the interfaces off your computer.
+- Other NICs:
+  - `enp0s3` which is the one that is used to communicate to other computers or outside world, and it has the IP assigned
+  - `lo` = Lo stands for loopback device is a special interface that your computer uses to communicate within itself. It works as a diagnostic and troubleshooting and to connect servers running on the local machine. Using the command `ethtool lo`
+  - `virb0` = This stands for virtual bridge zero interface is used for NAT. NAT stands for network address translation. The virtual environment sometimes use it to connect to outside network. Using the command `ethtool virb0`
+## NIC or Port Bonding
+
+## New Network Utilities (nmtui, nmcli, nm-connection-editor and GNOME Settings)
+## Downloading Files or Apps (get)
+## curl and ping commands
+
