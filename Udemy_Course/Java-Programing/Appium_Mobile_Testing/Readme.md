@@ -212,3 +212,39 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
   <version>6.14.3</version>
 </dependency>
 ```
+### 24. What is UIAutomator and creating UiAutomator object to define Capabilities
+- UPLOAD
+- `appium driver install uiautomator2`
+- `appium driver list`
+- Create new class
+- Write code
+  ```java
+  package rahulshettyacademy;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+
+public class AppiumTest {
+
+	public AndroidDriver driver;
+	public AppiumDriverLocalService service;
+	
+	@Test
+	public void AppiumTest() throws MalformedURLException
+	{
+								
+			UiAutomator2Options options = new UiAutomator2Options();
+			options.setDeviceName("RahulPhone"); //emulator
+			
+			AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), null);
+			 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	
+}
+
+  ```
+- Start appium server, type command `appium`
