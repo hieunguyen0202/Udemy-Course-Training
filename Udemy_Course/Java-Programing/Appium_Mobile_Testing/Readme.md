@@ -276,3 +276,39 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 		}
 	}
   ```
+### 27. How to start & Stop Appium Server Programmatically using AppiumServiceBuilder
+- In window : `C:users/HP/AppData/Roaming/npm/node_modules/appium/build/lib/main.js`
+- Write code
+  ```java
+  package rahulshettyacademy;
+
+	import java.net.MalformedURLException;
+	import java.net.URL;
+	import org.testng.annotations.Test;
+	
+	import io.appium.java_client.android.AndroidDriver;
+	import io.appium.java_client.android.options.UiAutomator2Options;
+	
+	public class AppiumBasics {
+		@Test
+		public void AppiumTest() throws MalformedURLException
+		{
+  		//code to start server
+	           //AndroidDriver, IOSDriver
+	           //Appium code -> Appium Server -> Mobile
+                   AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
+  			.withIPAddress("127.0.0.1").usingPort(4723).build();
+                   service.start();
+		   UiAutomator2Options options = new UiAutomator2Options();
+		   options.setDeviceName("RahulPhone"); //emulator
+		   options.setApp("/////ApiDemo-debug.apk")	
+		   AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), null);
+                    //Actuall automation
+                   driver.quit()
+                   service.stop();
+                   //stop server
+                  
+	
+		}
+	}
+  ```
