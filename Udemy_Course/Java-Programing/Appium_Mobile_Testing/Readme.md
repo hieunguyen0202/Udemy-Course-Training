@@ -181,3 +181,34 @@ return "rahul shetty";
 }
 }
 ```
+## Section 4: Getting Started with Mobile testing using Appium Code
+### 23. DO NOT SKIP - Important Note on dependencies version compatibility
+Please go through below checklist and make sure you have correct configurations. If not you will run into issues from upcoming lectures
+
+1.  Node version minimum should be 16. you can check your version with below command
+`node -v`
+If it is less than 16, please upgrade
+2.  This course is taught on latest Appium Server 2.0 version. If you use older Version 1.22, then you will run into issues.
+You can check your appium version with below command
+`appium -v`
+If you have less than 2 version, use below steps to install correctly
+`npm uninstall -g appium`
+Delete  appium folder in node modules
+`npm install -g appium@next`
+
+3.  Appium Java client 8.0.0 has few bugs. So please select the  version Greater than 8.0.0 from `mavenrepository.com`. ( Always select latest available)
+3. Do not include any Selenium dependencies as of now in your project, I will later show what packages needs to be installed once we move into framework lectures,
+So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination  which you can have in your POM.xml Project for smoother execution
+```
+<dependency>
+  <groupId>io.appium</groupId>
+  <artifactId>java-client</artifactId>
+  <version>8.3.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+  <groupId>org.testng</groupId>
+  <artifactId>testng</artifactId>
+  <version>6.14.3</version>
+</dependency>
+```
