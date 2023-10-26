@@ -352,3 +352,45 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 		}
 	}
   ```
+### 29. Creating Base Class with Util methods and extend it to Child Appium Tests
+- Create another file for base class:
+- Write code
+  ```java
+  // BaseTest.java
+   package rahulshettyacademy;
+
+	import java.net.MalformedURLException;
+	import java.net.URL;
+	import org.testng.annotations.Test;
+	
+	import io.appium.java_client.android.AndroidDriver;
+	import io.appium.java_client.android.options.UiAutomator2Options;
+	
+	public class BaseTest {
+                public AndroidDriver driver;
+		public AppiumDriverLocalService service;
+		@Test
+		public void ConfigureAppium() throws MalformedURLException
+		{
+
+                   AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
+  			.withIPAddress("127.0.0.1").usingPort(4723).build();
+                   service.start();
+		   UiAutomator2Options options = new UiAutomator2Options();
+		   options.setDeviceName("RahulPhone"); //emulator
+		   options.setApp("/////ApiDemo-debug.apk")	
+		   driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+
+		}
+         public void tearDown()
+	  {
+	      driver.quit();
+	      service.stop();
+	  }
+	}
+  ```
+    ```java
+  // AppiumBasics.java
+ 
+}
+  ```
