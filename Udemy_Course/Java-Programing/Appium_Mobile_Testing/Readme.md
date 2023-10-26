@@ -34,4 +34,13 @@
   ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/b92b59cc-6d42-4f7a-af39-844bae8a1541)
   ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/5dad7ac7-508f-4943-a1f0-747340498ba1)
 
+### 6. Set Environment variable Paths of all Softwares in WINDOWS
+- Step 1: Copy the path
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bf160584-dbed-448c-91e5-4da46db47b36)
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/0c713a1f-be31-4f57-91db-299c3fd0b6c6)
+- Step 2: Run application
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/6737c533-0359-4517-ae41-34b389e107bc)
+- Step 3:
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bee402a8-c592-4feb-a649-0c80ec38fd09)
+
 ## Section 3: Brush up Java Concepts for Appium Automation
