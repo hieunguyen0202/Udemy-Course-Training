@@ -307,7 +307,47 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
                    driver.quit()
                    service.stop();
                    //stop server
-                  
+                   
+	
+		}
+	}
+  ```
+### 28. Introduction to Appium Inspector to identify the elements on the Apps
+- Go to `appium inspector` github and install tool. That tool is used to identify the elements on the Apps
+- Open App and config to load the device on `appium inspector`. we just focus on two elements `accessibility id` and `xpath`
+- Write code
+  ```java
+  package rahulshettyacademy;
+
+	import java.net.MalformedURLException;
+	import java.net.URL;
+	import org.testng.annotations.Test;
+	
+	import io.appium.java_client.android.AndroidDriver;
+	import io.appium.java_client.android.options.UiAutomator2Options;
+	
+	public class AppiumBasics {
+		@Test
+		public void AppiumTest() throws MalformedURLException
+		{
+  		//code to start server
+	           //AndroidDriver, IOSDriver
+	           //Appium code -> Appium Server -> Mobile
+                   AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
+  			.withIPAddress("127.0.0.1").usingPort(4723).build();
+                   service.start();
+		   UiAutomator2Options options = new UiAutomator2Options();
+		   options.setDeviceName("RahulPhone"); //emulator
+		   options.setApp("/////ApiDemo-debug.apk")	
+		   AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), null);
+                    //Actuall automation
+                   //Xpath, id, accessibilityId, classname, androidUIAutomator
+                   driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+  
+                   driver.quit()
+                   service.stop();
+                   //stop server
+                   
 	
 		}
 	}
