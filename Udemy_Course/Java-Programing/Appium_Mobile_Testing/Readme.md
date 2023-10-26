@@ -407,3 +407,4 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 		}
 	}
   ```
+### 30. Appium Server not starting programmatically - FIX WORKAROUND
