@@ -43,5 +43,10 @@
   ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/6737c533-0359-4517-ae41-34b389e107bc)
 - Step 3:
   ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bee402a8-c592-4feb-a649-0c80ec38fd09)
-
+### 8. Configure Android Virtual Device/Emulator and Install Appium Server
+Download `Appium Server`: `sudo npm install -g appium@next`
+### 9. Setting up Appium Maven project with Java client dependencies
+Install Eclipse
+- Step 1: Select `Download Packages` -> `Eclipse IDE for java Developers`
+- Step 2: Go to `maven repository` -> type `appium` -> Select `Java Client` -> Select Version -> Copy dependencies
 ## Section 3: Brush up Java Concepts for Appium Automation
