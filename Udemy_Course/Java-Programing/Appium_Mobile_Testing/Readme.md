@@ -246,3 +246,33 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 	}
   ```
 - Start appium server, type command `appium`
+### 26. Create Android Driver and set Desired capabilities through UiAutomator object
+- Write code
+  ```java
+  package rahulshettyacademy;
+
+	import java.net.MalformedURLException;
+	import java.net.URL;
+	import org.testng.annotations.Test;
+	
+	import io.appium.java_client.android.AndroidDriver;
+	import io.appium.java_client.android.options.UiAutomator2Options;
+	
+	public class AppiumBasics {
+		@Test
+		public void AppiumTest() throws MalformedURLException
+		{
+  		//code to start server
+	           //AndroidDriver, IOSDriver
+	           //Appium code -> Appium Server -> Mobile
+		   UiAutomator2Options options = new UiAutomator2Options();
+		   options.setDeviceName("RahulPhone"); //emulator
+		   options.setApp("/////ApiDemo-debug.apk")	
+		   AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), null);
+                   driver.quit()
+                   //stop server
+                   //Actuall automation
+	
+		}
+	}
+  ```
