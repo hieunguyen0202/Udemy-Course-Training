@@ -370,7 +370,7 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 	public class BaseTest {
                 public AndroidDriver driver;
 		public AppiumDriverLocalService service;
-		@Test
+		@BeforeClass
 		public void ConfigureAppium() throws MalformedURLException
 		{
 
@@ -383,16 +383,27 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 		   driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 
 		}
-         public void tearDown()
-	  {
-	      driver.quit();
-	      service.stop();
-	  }
+  		 @AfterClass
+	         public void tearDown()
+		  {
+		      driver.quit();
+		      service.stop();
+		  }
 	}
   ```
   
   ```java
   // AppiumBasics.java
- 
-
+        package rahulshettyacademy;
+	import java.net.MalformedURLException;
+	public class AppiumBasics extends BaseTest {
+		@Test
+		public void WifiSettingsName() throws MalformedURLException
+		{
+  		//code to start server
+	           //AndroidDriver, IOSDriver
+	           //Appium code -> Appium Server -> Mobile
+                   driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+		}
+	}
   ```
