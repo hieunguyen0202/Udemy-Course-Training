@@ -1,4 +1,5 @@
 # link: [click](https://bosch-bgsv.udemy.com/course/mobile-automation-using-appiumselenium-3/learn/lecture/27347566#overview)
+# Learning unit testing [Learn Java Unit Testing with Junit & Mockito in 30 Steps](https://bosch-bgsv.udemy.com/course/mockito-tutorial-with-junit-examples/learn/lecture/5678212#overview)
 ## Section 1: Introduction to Appium and Course Plan
 ### 1. Course Agenda
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/4a68cf6a-aeab-4f80-b05f-329f404722ff)
