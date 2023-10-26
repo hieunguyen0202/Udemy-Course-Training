@@ -49,4 +49,18 @@ Download `Appium Server`: `sudo npm install -g appium@next`
 Install Eclipse
 - Step 1: Select `Download Packages` -> `Eclipse IDE for java Developers`
 - Step 2: Go to `maven repository` -> type `appium` -> Select `Java Client` -> Select Version -> Copy dependencies
+- Step 3: Open Eclipse -> Click on `Create a project` -> Select `/Maven/Maven Project`-> Next
+- Step 4: Click Next -> Select on `spring-boot-blank-archetype`-> Filter -> Select on `maven-archetype-quickstart` -> Next
+- Step 5: Fill `Group Id` and `Artifact Id` -> Finish
+- Step 6: Go to `porn.xml` and copy past dependencies
+- Step 7: Go to `maven repository` -> Type `testing` -> Select `TestNG` -> Copy dependencies -> Save
+- Step 8: Right click the roor folder -> Select `Maven` -> Select `Update project` -> CLick OK
+### 10. Caution on Compatible testnG Java version along with Plugin Install
+- Go to `Help` -> Select `Eclipse Marketplace` -> Search `testing` -> Install `TestNG for Eclipse`
+### 11. Important Note
+- Lets pause on Appium discussion here and jump on to  Java basics in next section to get basic brushup on Java concepts.
+- If you are already familiar with Java basics, then please skip next section and move on  further for Appium automation.
 ## Section 3: Brush up Java Concepts for Appium Automation
+### 12. Course Strategy to learn Appium basics for Selenium Automation
+-Upload Image
+
