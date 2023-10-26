@@ -389,8 +389,9 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 	  }
 	}
   ```
-    ```java
+  
+  ```java
   // AppiumBasics.java
  
-}
+
   ```
