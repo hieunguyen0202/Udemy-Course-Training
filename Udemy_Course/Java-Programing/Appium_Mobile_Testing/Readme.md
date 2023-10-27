@@ -578,3 +578,6 @@ public class AppiumBasics extends BaseTest{
 }
 
 ```
+## Section 6: Advanced Gestures Automation with Key Events Handling using Appium
+### 36. Introduction to Appium Mobile Gestures and how it works
+
