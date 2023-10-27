@@ -216,6 +216,8 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 ### 24. What is UIAutomator and creating UiAutomator object to define Capabilities
 - UPLOAD
 - `appium driver install uiautomator2`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bd1f3b65-b89d-41e5-befc-2c02a4877045)
+
 - `appium driver list`
 - Create new class
 - Write code
