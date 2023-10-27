@@ -408,3 +408,52 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 	}
   ```
 ### 30. Appium Server not starting programmatically - FIX WORKAROUND
+- Solve problems: Comment `service.start();`
+
+### 31. Android Home Not Set error - MAC - Troubleshoot - FIX WORK AROUND
+- Config to run the test, add ptah ANDROID_HOME
+### 32. Stay Connected to the Testing World
+- Do you want to stay updated with the latest Automation Technologies/Updates/Jobs happening in Testing Industry?
+- Are you curious to know the Best Practices what others Use in their companies for Software Testing??
+- Get Social with us in LinkedIn, Facebook, Telegram and see what other QA Peers are talking about on their experiences. You can have your general questions too and get suggestions from the Strongest QA Community Base
+- FB QA Group : https://www.facebook.com/groups/RahulShettyAcademy/
+- LinkedIn : https://www.linkedin.com/in/rahul-shetty-trainer/
+- Exclusive QA Interview Preparation Telegram Group. You can find questions asked from various companies with detailed solutions
+- Telegram Group :  https://t.me/rahulshettyacademy
+- Subscribe to our below YouTube channel for Automation Tidbits and many Miscellaneous Important QA General topics which needed for Real time projects
+
+- YouTube : https://www.youtube.com/c/RahulShettyAcademy
+
+### 33. Introduction to Id, Xpath & Accessibility ID locators in App with an example
+```java
+package rahulshettyacademy;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class AppiumBasics extends BaseTest{
+
+	@Test
+	public void WifiSettingsName() throws MalformedURLException
+	{
+	//code to start server	
+		//AndroidDriver , IOSDriver
+		//Appium code - > Appium Server -> Mobile 		
+		//Actual automation
+		//Xpath, id, accessibilityId, classname, androidUIAutomator
+		
+	//tagName[@attribute='value']  -> //tagName
+		driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+		driver.findElement(By.xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")).click();
+		driver.findElement(By.id("android:id/checkbox")).click();
+               //If xpath is too long, you can use tagName instead.
+		driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click(); 	
+	}	
+}
+
+```
