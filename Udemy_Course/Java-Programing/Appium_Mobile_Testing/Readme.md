@@ -634,4 +634,11 @@ public class AppTest extends BaseTest
 
 ## Section 6: Advanced Gestures Automation with Key Events Handling using Appium
 ### 36. Introduction to Appium Mobile Gestures and how it works
-
+- New task step by step:
+  https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
+  https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
+  https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
+  Long press `People names`
+  https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
+- Create new class `LongPress`:
+- Go to `https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md` to use `Long Press`
