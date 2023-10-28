@@ -331,7 +331,7 @@ public class AppTest
 - ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bf51d752-0570-4ea3-af5d-8d23a90d69e5)
 ```json
 {
-  "appium:app": "C://Users//HP//AppData//Roaming//npm//node_modules//appium//build//lib//main.js",
+  "appium:app": "C://Users//HP//eclipse-workspace//Appium//src//test//java//resources//ApiDemos-debug.apk",
   "appium:deviceName": "FirstAutomationTesting",
   "platformName": "android",
   "appium:automationName": "UIAutomator2"
