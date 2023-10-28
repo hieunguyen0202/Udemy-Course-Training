@@ -383,58 +383,86 @@ public class AppTest
 
 ### 29. Creating Base Class with Util methods and extend it to Child Appium Tests
 - Create another file for base class:
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/d9359d2e-6da1-4ac6-a603-9a8a03f32363)
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/65422fdf-faaa-4755-b117-d5659b490d1b)
+
 - Write code
-  ```java
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/31473ce0-76a2-43d2-b9c3-7dd22e288366)
+
+```java
   // BaseTest.java
-   package rahulshettyacademy;
+  package TheFirstTestingProject;
 
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import org.testng.annotations.Test;
-	
-	import io.appium.java_client.android.AndroidDriver;
-	import io.appium.java_client.android.options.UiAutomator2Options;
-	
-	public class BaseTest {
-                public AndroidDriver driver;
-		public AppiumDriverLocalService service;
-		@BeforeClass
-		public void ConfigureAppium() throws MalformedURLException
-		{
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-                   AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
-  			.withIPAddress("127.0.0.1").usingPort(4723).build();
-                   service.start();
-		   UiAutomator2Options options = new UiAutomator2Options();
-		   options.setDeviceName("RahulPhone"); //emulator
-		   options.setApp("/////ApiDemo-debug.apk")	
-		   driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+import org.openqa.selenium.remote.HttpCommandExecutor;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
-		}
-  		 @AfterClass
-	         public void tearDown()
-		  {
-		      driver.quit();
-		      service.stop();
-		  }
-	}
-  ```
-  
-  ```java
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+
+public class BaseTest {
+	   		public AndroidDriver driver;
+			public AppiumDriverLocalService service;
+			@BeforeClass
+			public void ConfigureAppium() throws MalformedURLException
+			{
+
+	          service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//HP//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
+	  			.withIPAddress("127.0.0.1").usingPort(4723).build();
+	                   service.start();
+			   UiAutomator2Options options = new UiAutomator2Options();
+			   options.setDeviceName("FirstAutomationTesting"); //emulator
+			   options.setApp("C://Users//HP//eclipse-workspace//Appium//src//test//java//resources//ApiDemos-debug.apk");
+			   driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+
+			}
+	  		@AfterClass
+		    public void tearDown()
+			  {
+			      driver.quit();
+			      service.stop();
+			  }
+
+}
+
+```
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/9fc7e388-ad55-48f8-9344-1e2a5b1eaa7e)
+
+```java
   // AppiumBasics.java
-        package rahulshettyacademy;
-	import java.net.MalformedURLException;
-	public class AppiumBasics extends BaseTest {
-		@Test
-		public void WifiSettingsName() throws MalformedURLException
-		{
-  		//code to start server
-	           //AndroidDriver, IOSDriver
-	           //Appium code -> Appium Server -> Mobile
-                   driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-		}
-	}
-  ```
+package TheFirstTestingProject;
+
+import java.net.MalformedURLException;
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+
+public class AppTest extends BaseTest
+{
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void AppTest() throws MalformedURLException
+    {
+    	
+    	 //Actuall automation
+        //Xpath, id, accessibilityId, classname, androidUIAutomator
+        driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+
+    	
+    }
+}
+
+```
 ### 30. Appium Server not starting programmatically - FIX WORKAROUND
 - Solve problems: Comment `service.start();`
 
