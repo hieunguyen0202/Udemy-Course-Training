@@ -1,4 +1,7 @@
 # link: [click](https://bosch-bgsv.udemy.com/course/mobile-automation-using-appiumselenium-3/learn/lecture/27347566#overview)
+
+Rest API Testing (Automation) from Scratch-Rest Assured Java
+
 # Learning unit testing [Learn Java Unit Testing with Junit & Mockito in 30 Steps](https://bosch-bgsv.udemy.com/course/mockito-tutorial-with-junit-examples/learn/lecture/5678212#overview)
 ## Section 1: Introduction to Appium and Course Plan
 ### 1. Course Agenda
