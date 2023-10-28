@@ -1024,8 +1024,128 @@ public class SwipeDemo extends BaseTest
 ```
 ## Section 7: Appium Miscellaneous Topics for Android Automation
 ### 40. How to Perform Drag & Drop on elements in app using Appium
+- Step task: `Views` -> `Drag and Drop` -> Do drag circle and drop it -> Check the text "Dropped!"
+```
+((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+			    "elementId", ((RemoteWebElement) source).getId(),
+			    "endX", 619,
+			    "endY", 560
+			));
+```
+- Write code:
+```java
+package TheFirstTestingProject;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.appium.java_client.AppiumBy;
+
+public class DragDropDemo extends BaseTest
+{
+  
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void DragDropDemoTest() throws MalformedURLException, InterruptedException
+    {
+    	driver.findElement(AppiumBy.accessibilityId("Views")).click();
+		driver.findElement(AppiumBy.accessibilityId("Drag and Drop")).click();
+		WebElement source = driver.findElement(By.id("io.appium.android.apis:id/drag_dot_1"));
+		
+		((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+			    "elementId", ((RemoteWebElement) source).getId(),
+			    "endX", 619,
+			    "endY", 560
+			));
+		
+		Thread.sleep(3000);
+		String result = driver.findElement(By.id("io.appium.android.apis:id/drag_result_text")).getText();
+		Assert.assertEquals(result, "Dropped!");
+
+    			
+    			
+    }
+}
+
+```
 ### 41. Assignment - End to end exercise on Appium
+- Task : go to `App` -> `Alert Dialog` > Do step by step tesing all of them
+- ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bba59b19-32b1-49ef-9e30-170677e9f487)
+
 ### 42. Automate Miscellaneous Activities like orientation & KeyEvents using Appium
+- Create new class `MisceallanousAppiumActions`
+- If you want to lanscape mode:
+```java
+DeviceRotation landScape = new DeviceRotation(0, 0, 90);
+		driver.rotate(landScape);		
+```
+- To presse `HOME`,`BACK`, `ENTER`, OR KEYBOARD
+```JAVA
+driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+driver.pressKey(new KeyEvent(AndroidKey.BACK));
+driver.pressKey(new KeyEvent(AndroidKey.HOME));
+```
+- Write code:
+```java
+package TheFirstTestingProject;
+
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.DeviceRotation;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
+public class MisceallanousAppiumActions extends BaseTest{
+
+	@Test
+	public void MisceallanousAppiumActionsTest() throws MalformedURLException
+	{
+		
+		
+		driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+		driver.findElement(By.xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")).click();
+		driver.findElement(By.id("android:id/checkbox")).click();
+		DeviceRotation landScape = new DeviceRotation(0, 0, 90);
+		driver.rotate(landScape);		
+		driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click(); 
+		String alertTitle = driver.findElement(By.id("android:id/alertTitle")).getText();
+		Assert.assertEquals(alertTitle, "WiFi settings");	
+		//copy paste
+		//copy to clipboard- paste it clipboard
+		driver.setClipboardText("Rahul Wifi");
+		driver.findElement(By.id("android:id/edit")).sendKeys(driver.getClipboardText());
+		driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+		driver.findElements(AppiumBy.className("android.widget.Button")).get(1).click();
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+		driver.pressKey(new KeyEvent(AndroidKey.HOME));
+	
+
+	}
+	
+}
+
+```
 ### 43. Please Note
-### 44. How to open App using app package and activity name using appium
+## Section 9: Hybrid  App Automation with Appium to switch from Apps to Web Browser
+### 53. Testcase - Validating Mobile Gestures of App ( Tap, Long Press)
+### 54. How to handle objects when rendered in Web view?
+### 55. TestCase -Automate Hybrid App with context Switch using Chrome Driver
+
 
