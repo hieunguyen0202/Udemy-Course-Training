@@ -331,38 +331,47 @@ public class AppTest
 - ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bf51d752-0570-4ea3-af5d-8d23a90d69e5)
 
 - Write code
-  ```java
-  package rahulshettyacademy;
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import org.testng.annotations.Test;
-	
-	import io.appium.java_client.android.AndroidDriver;
-	import io.appium.java_client.android.options.UiAutomator2Options;
-	
-	public class AppiumBasics {
-		@Test
-		public void AppiumTest() throws MalformedURLException
-		{
-  		//code to start server
-	           //AndroidDriver, IOSDriver
-	           //Appium code -> Appium Server -> Mobile
-                   AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
-  			.withIPAddress("127.0.0.1").usingPort(4723).build();
-                   service.start();
-		   UiAutomator2Options options = new UiAutomator2Options();
-		   options.setDeviceName("RahulPhone"); //emulator
-		   options.setApp("/////ApiDemo-debug.apk")	
-		   AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), null);
-                    //Actuall automation
-                   //Xpath, id, accessibilityId, classname, androidUIAutomator
-                   driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-                   driver.quit()
-                   service.stop();
-                   //stop server
-		}
-	}
-  ```
+```java
+  package TheFirstTestingProject;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+
+public class AppTest 
+{
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void AppTest() throws MalformedURLException
+    {
+    	 AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//HP//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
+    				.withIPAddress("127.0.0.1").usingPort(4723).build();
+    	service.start();
+    	UiAutomator2Options options = new UiAutomator2Options();
+    	options.setDeviceName("FirstAutomationTesting"); //emulator
+    	options.setApp("C://Users//HP//eclipse-workspace//Appium//src//test//java//resources//ApiDemos-debug.apk");
+    	
+    	//Appium Code ->Apium Server -> Mobile
+    	AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+    	 //Actuall automation
+        //Xpath, id, accessibilityId, classname, androidUIAutomator
+        driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+    	driver.quit();
+    	service.stop();
+    	
+    }
+}
+```
   - You need to run `appium` in cmd in advance
    ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/a7f658d0-c8af-49a2-a025-bc18761d1695)
   - Go to appium in spector and fill 4 properties and click `Start Session`
