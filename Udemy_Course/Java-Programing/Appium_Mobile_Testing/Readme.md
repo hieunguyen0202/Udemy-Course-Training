@@ -363,6 +363,15 @@ public class AppTest
 		}
 	}
   ```
+  - You need to run `appium` in cmd in advance
+   ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/a7f658d0-c8af-49a2-a025-bc18761d1695)
+  - Go to appium in spector and fill 4 properties and click `Start Session`
+    ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/5d1688f0-934a-4f5a-bd1d-adfb0a1eeaae)
+    ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/ca508bad-ce9a-4ff6-b04b-a8ce8424d6dc)
+
+
+
+
 ### 29. Creating Base Class with Util methods and extend it to Child Appium Tests
 - Create another file for base class:
 - Write code
