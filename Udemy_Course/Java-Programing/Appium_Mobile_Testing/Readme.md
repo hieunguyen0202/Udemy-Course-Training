@@ -328,6 +328,8 @@ public class AppTest
 ### 28. Introduction to Appium Inspector to identify the elements on the Apps
 - Go to `appium inspector` github and install tool. That tool is used to identify the elements on the Apps
 - Open App and config to load the device on `appium inspector`. we just focus on two elements `accessibility id` and `xpath`
+- ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bf51d752-0570-4ea3-af5d-8d23a90d69e5)
+
 - Write code
   ```java
   package rahulshettyacademy;
