@@ -287,38 +287,45 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 - In window : `C:users/HP/AppData/Roaming/npm/node_modules/appium/build/lib/main.js`
 - Write code
   ```java
-  package rahulshettyacademy;
+  package TheFirstTestingProject;
 
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import org.testng.annotations.Test;
-	
-	import io.appium.java_client.android.AndroidDriver;
-	import io.appium.java_client.android.options.UiAutomator2Options;
-	
-	public class AppiumBasics {
-		@Test
-		public void AppiumTest() throws MalformedURLException
-		{
-  		//code to start server
-	           //AndroidDriver, IOSDriver
-	           //Appium code -> Appium Server -> Mobile
-                   AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
-  			.withIPAddress("127.0.0.1").usingPort(4723).build();
-                   service.start();
-		   UiAutomator2Options options = new UiAutomator2Options();
-		   options.setDeviceName("RahulPhone"); //emulator
-		   options.setApp("/////ApiDemo-debug.apk")	
-		   AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), null);
-                    //Actuall automation
-                   driver.quit()
-                   service.stop();
-                   //stop server
-                   
-	
-		}
-	}
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+
+public class AppTest 
+{
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void AppTest() throws MalformedURLException
+    {
+    	 AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//HP//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
+    				.withIPAddress("127.0.0.1").usingPort(4723).build();
+    	service.start();
+    	UiAutomator2Options options = new UiAutomator2Options();
+    	options.setDeviceName("FirstAutomationTesting"); //emulator
+    	options.setApp("C://Users//HP//eclipse-workspace//Appium//src//test//java//resources//ApiDemos-debug.apk");
+    	
+    	//Appium Code ->Apium Server -> Mobile
+    	AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+    	driver.quit();
+    	service.stop();
+    	
+    }
+}
+
   ```
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/af4900c1-860b-42bb-b9bb-82d20c79a670)
+
 ### 28. Introduction to Appium Inspector to identify the elements on the Apps
 - Go to `appium inspector` github and install tool. That tool is used to identify the elements on the Apps
 - Open App and config to load the device on `appium inspector`. we just focus on two elements `accessibility id` and `xpath`
