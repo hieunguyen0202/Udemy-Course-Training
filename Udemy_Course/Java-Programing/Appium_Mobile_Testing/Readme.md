@@ -283,6 +283,7 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 	}
   ```
 ### 27. How to start & Stop Appium Server Programmatically using AppiumServiceBuilder
+- You don't need to go to `cmd` to start `appium` server. Because you used `AppiumDriverLocalService` instead.
 - In window : `C:users/HP/AppData/Roaming/npm/node_modules/appium/build/lib/main.js`
 - Write code
   ```java
