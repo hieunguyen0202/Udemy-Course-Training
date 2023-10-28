@@ -782,3 +782,243 @@ public class LongPress extends BaseTest {
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/cbe991d2-1bdd-4d67-b825-5fe0ce12e3cd)
 - Test `PASS`
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/195d66b4-7c54-43dd-ab27-b0afc79cff33)
+### 38. How to Perform Scroll Gesture using Appium on Android Apps
+- Add task `Views` -> Scroll down -> `WebView`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bf90b224-70b4-4c6f-b2ea-6283a24e3b76)
+- Create new class `ScrollDemo`
+- Write code
+```java
+//BaseTest.java
+package TheFirstTestingProject;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.HttpCommandExecutor;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+
+public class BaseTest {
+	   		public AndroidDriver driver;
+			public AppiumDriverLocalService service;
+			@BeforeClass
+			public void ConfigureAppium() throws MalformedURLException
+			{
+
+	          service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//HP//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
+	  			.withIPAddress("127.0.0.1").usingPort(4723).build();
+	           //service.start();
+			   UiAutomator2Options options = new UiAutomator2Options();
+			   options.setDeviceName("FirstAutomationTesting"); //emulator
+			   options.setApp("C://Users//HP//eclipse-workspace//Appium//src//test//java//resources//ApiDemos-debug.apk");
+			   driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+
+			}
+		    public void longPressAction(WebElement elememt)
+		    {
+		    	// Java
+    			((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+    			    "elementId", ((RemoteWebElement) elememt).getId(),
+    			          "duration", 2000)); //2s
+		    }
+		    public void scrollDemoAction() throws InterruptedException
+		    {
+		    	boolean canScrollMore;
+    			do
+    			{
+    				canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+    			    "left", 100, "top", 100, "width", 200, "height", 200,
+    			    "direction", "down",
+    			    "percent", 3.0
+    			));
+    			}while(canScrollMore);
+    			Thread.sleep(2000);
+    	    	
+		    }
+	  		@AfterClass
+		    public void tearDown()
+			  {
+			      driver.quit();
+			      service.stop();
+			  }
+
+}
+
+```
+```java
+package TheFirstTestingProject;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.appium.java_client.AppiumBy;
+
+public class ScrollDemo extends BaseTest
+
+{
+         
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void SrcollDemoTest() throws MalformedURLException, InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    			driver.findElement(AppiumBy.accessibilityId("Views")).click();
+    			// Java
+    			
+    			scrollDemoAction();
+    			
+    			
+    }
+}
+
+
+```
+### 39. How to automate Swipe functionality using Appium on Android
+- Add task `Views` -> `Gallery` -> `1. Photos` -> `Swipe (Right -> Left)`
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/723ab12e-db3f-46be-96cf-2e8647a05e51)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/7a0328be-3a4d-4b16-b126-bb0fc6ffddd6)
+- How to swipe
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/66eddeac-3f80-4f06-a71d-8e43369d121b)
+
+- Focus on `Focusable` properties
+- Create new class `SwipeDemo`
+- Write code
+```java
+//BaseTest.java
+package TheFirstTestingProject;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.HttpCommandExecutor;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+
+public class BaseTest {
+	   		public AndroidDriver driver;
+			public AppiumDriverLocalService service;
+			@BeforeClass
+			public void ConfigureAppium() throws MalformedURLException
+			{
+
+	          service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//HP//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
+	  			.withIPAddress("127.0.0.1").usingPort(4723).build();
+	           //service.start();
+			   UiAutomator2Options options = new UiAutomator2Options();
+			   options.setDeviceName("FirstAutomationTesting"); //emulator
+			   options.setApp("C://Users//HP//eclipse-workspace//Appium//src//test//java//resources//ApiDemos-debug.apk");
+			   driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+
+			}
+		    public void longPressAction(WebElement elememt)
+		    {
+		    	// Java
+    			((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+    			    "elementId", ((RemoteWebElement) elememt).getId(),
+    			          "duration", 2000)); //2s
+		    }
+		    public void scrollDemoAction() throws InterruptedException
+		    {
+		    	boolean canScrollMore;
+    			do
+    			{
+    				canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+    			    "left", 100, "top", 100, "width", 200, "height", 200,
+    			    "direction", "down",
+    			    "percent", 3.0
+    			));
+    			}while(canScrollMore);
+    			Thread.sleep(2000);
+    	    	
+		    }
+		    
+		    public void swipeDemoAction(WebElement firstImage)
+		    {
+		    	// Java
+		    	((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+		    	   "elementId", ((RemoteWebElement)firstImage).getId(),
+		    	    "direction", "left",
+		    	    "percent", 0.75
+		    	));
+		    }
+	  		@AfterClass
+		    public void tearDown()
+			  {
+			      driver.quit();
+			      service.stop();
+			  }
+
+}
+
+```
+```java
+package TheFirstTestingProject;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class SwipeDemo extends BaseTest 
+{
+
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void SwipeDemoTest() throws MalformedURLException, InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    			driver.findElement(AppiumBy.accessibilityId("Views")).click();
+    			//Find element Gallery
+    			driver.findElement(AppiumBy.accessibilityId("Gallery")).click();
+    			//Find element 1. Photos
+    			driver.findElement(AppiumBy.accessibilityId("1. Photos")).click();
+    			WebElement firstImage = driver.findElement(By.xpath("(//android.widget.ImageView)[1]"));
+    			Assert.assertEquals(driver.findElement(By.xpath("(//android.widget.ImageView)[1]")).getAttribute("focusable"),"true");
+    			// Swipe
+    			swipeDemoAction(firstImage);
+    			Assert.assertEquals(driver.findElement(By.xpath("(//android.widget.ImageView)[1]")).getAttribute("focusable"),"false");
+    			
+    }
+}
+
+
+```
