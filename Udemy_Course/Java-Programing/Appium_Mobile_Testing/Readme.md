@@ -286,9 +286,8 @@ So, as of now,  Below is Latest perfect working ( Appium & TestNG ) Combination 
 - You don't need to go to `cmd` to start `appium` server. Because you used `AppiumDriverLocalService` instead.
 - In window : `C:users/HP/AppData/Roaming/npm/node_modules/appium/build/lib/main.js`
 - Write code
-  ```java
+```java
   package TheFirstTestingProject;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -322,9 +321,9 @@ public class AppTest
     	
     }
 }
+```
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bc34a7d8-684a-44bc-b072-1e7a57ad7d05)
 
-  ```
-![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/af4900c1-860b-42bb-b9bb-82d20c79a670)
 
 ### 28. Introduction to Appium Inspector to identify the elements on the Apps
 - Go to `appium inspector` github and install tool. That tool is used to identify the elements on the Apps
@@ -332,7 +331,6 @@ public class AppTest
 - Write code
   ```java
   package rahulshettyacademy;
-
 	import java.net.MalformedURLException;
 	import java.net.URL;
 	import org.testng.annotations.Test;
@@ -357,12 +355,9 @@ public class AppTest
                     //Actuall automation
                    //Xpath, id, accessibilityId, classname, androidUIAutomator
                    driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-  
                    driver.quit()
                    service.stop();
                    //stop server
-                   
-	
 		}
 	}
   ```
