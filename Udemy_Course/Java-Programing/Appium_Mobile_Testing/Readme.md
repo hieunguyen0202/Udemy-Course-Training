@@ -644,3 +644,141 @@ public class AppTest extends BaseTest
 
 - Create new class `LongPress`:
 - Go to `https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md` to use `Long Press`
+- Write code
+```java
+package TheFirstTestingProject;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.appium.java_client.AppiumBy;
+
+public class LongPress extends BaseTest {
+    
+	/**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void LongPressTest() throws MalformedURLException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    			driver.findElement(AppiumBy.accessibilityId("Views")).click();
+    			driver.findElement(AppiumBy.accessibilityId("Expandable Lists")).click();
+    			driver.findElement(AppiumBy.accessibilityId("1. Custom Adapter")).click();
+    			WebElement elememt = driver.findElement(By.xpath("//android.widget.TextView[@text=\"People Names\"]"));
+    			// Java
+    			((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+    			    "elementId", ((RemoteWebElement) elememt).getId(),
+    			          "duration", 2000)); //2s
+    	
+    }
+}
+```
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/84dafd61-3a57-4980-a3a7-4aa6e9880ef7)
+### 37. How to long press on Android Apps using Appium - LongPressGesture
+-Add `longPressAction(WebElement elememt)`
+```java
+//BaseTest.java
+package TheFirstTestingProject;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.HttpCommandExecutor;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+
+public class BaseTest {
+	   		public AndroidDriver driver;
+			public AppiumDriverLocalService service;
+			@BeforeClass
+			public void ConfigureAppium() throws MalformedURLException
+			{
+
+	          service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//HP//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"))
+	  			.withIPAddress("127.0.0.1").usingPort(4723).build();
+	           //service.start();
+			   UiAutomator2Options options = new UiAutomator2Options();
+			   options.setDeviceName("FirstAutomationTesting"); //emulator
+			   options.setApp("C://Users//HP//eclipse-workspace//Appium//src//test//java//resources//ApiDemos-debug.apk");
+			   driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+
+			}
+		    public void longPressAction(WebElement elememt)
+		    {
+		    	// Java
+    			((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+    			    "elementId", ((RemoteWebElement) elememt).getId(),
+    			          "duration", 2000)); //2s
+		    }
+	  		@AfterClass
+		    public void tearDown()
+			  {
+			      driver.quit();
+			      service.stop();
+			  }
+
+}
+```
+```java
+//LongPress.java
+package TheFirstTestingProject;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableMap;
+
+import io.appium.java_client.AppiumBy;
+
+public class LongPress extends BaseTest {
+    
+	/**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void LongPressTest() throws MalformedURLException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    			driver.findElement(AppiumBy.accessibilityId("Views")).click();
+    			driver.findElement(AppiumBy.accessibilityId("Expandable Lists")).click();
+    			driver.findElement(AppiumBy.accessibilityId("1. Custom Adapter")).click();
+    			WebElement elememt = driver.findElement(By.xpath("//android.widget.TextView[@text=\"People Names\"]"));
+    			longPressAction(elememt);
+    			String menutext = driver.findElement(By.id("android:id/title")).getText();
+    			Assert.assertEquals(menutext,"Sample memu");
+    			Assert.assertTrue(driver.findElement(By.id("android:id/title")).isDisplayed());
+    			
+    	
+    }
+}
+
+```
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/cbe991d2-1bdd-4d67-b825-5fe0ce12e3cd)
+- Test `PASS`
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/195d66b4-7c54-43dd-ab27-b0afc79cff33)
