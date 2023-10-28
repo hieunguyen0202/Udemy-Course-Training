@@ -588,45 +588,50 @@ public class AppTest extends BaseTest
 
 ### 35. How to extract the text & Enter the info on Mobile Apps with Appium
 - Using `Assert.assertEquals` to check the group whether include the correct content.
+- Copy `android:id/alertTitle` in 
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/def0220c-2dc0-423e-b825-09dc1a626410)
+
 ```java
-package rahulshettyacademy;
-
+package TheFirstTestingProject;
 import java.net.MalformedURLException;
-
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import org.testng.Assert;
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.By;
 
-public class AppiumBasics extends BaseTest{
-
-	@Test
-	public void WifiSettingsName() throws MalformedURLException
-	{
-	//code to start server	
-		//AndroidDriver , IOSDriver
-		//Appium code - > Appium Server -> Mobile 		
-		//Actual automation
-		//Xpath, id, accessibilityId, classname, androidUIAutomator
-		
-	//tagName[@attribute='value']  -> //tagName
-		driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-		driver.findElement(By.xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")).click();
-		driver.findElement(By.id("android:id/checkbox")).click();
-		driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click(); 
-		String alertTitle = driver.findElement(By.id("android:id/alertTitle")).getText();
-		Assert.assertEquals(alertTitle, "WiFi settings");	
-		driver.findElement(By.id("android:id/edit")).sendKeys("Rahul Wifi");
-	driver.findElements(AppiumBy.className("android.widget.Button")).get(1).click();
-			
-		//set wifi name
-		
-	}
-
+public class AppTest extends BaseTest
+{
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void AppTest() throws MalformedURLException
+    {
+    	
+    	        //code to start server	
+    			//AndroidDriver , IOSDriver
+    			//Appium code - > Appium Server -> Mobile 		
+    			//Actual automation
+    			//Xpath, id, accessibilityId, classname, androidUIAutomator
+    			
+    		    //tagName[@attribute='value']  -> //tagName
+    			driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+    			driver.findElement(By.xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")).click();
+    			driver.findElement(By.id("android:id/checkbox")).click();
+    	        //If xpath is too long, you can use tagName instead.
+    			driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click(); 
+    			String alertTitle = driver.findElement(By.id("android:id/alertTitle")).getText();
+    			Assert.assertEquals(alertTitle, "WiFi settings");	
+    			
+    			driver.findElement(By.id("android:id/edit")).sendKeys("XH Wifi");
+                   //The className is not unique, that's why we use `.get(1)`
+                driver.findElements(AppiumBy.className("android.widget.Button")).get(1).click();
+    	
+    }
 }
 
 ```
+
 ## Section 6: Advanced Gestures Automation with Key Events Handling using Appium
 ### 36. Introduction to Appium Mobile Gestures and how it works
 
