@@ -529,80 +529,55 @@ public class AppTest extends BaseTest
 - Write code to edit box
 - Let's also maintain some global timeout. See, in my system, it's a max, so it's very fast. So screens will load a very quick for me if you are using any mission like Windows with a low configuration. So it might take some time to reach from one place to another.
 So we will keep some global timeout that we will ask our app to wait until the timeout is done so that we can set in our configuration file, go to base test here itself.
+- Go to id `android:id/edit`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/c32001eb-fb48-4afa-abfa-78767f22cb63)
+- Find Button click by id `android:id/button1`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/08f72055-13e0-4115-9ea6-a44806e489d5)
+- Find Button click by `ClassName "android.widget.Button"`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/e0ef2e27-2d83-4248-bebf-65d280f29689)
+
 
 ```java
-package rahulshettyacademy;
+package TheFirstTestingProject;
 
 import java.net.MalformedURLException;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.By;
 
-public class AppiumBasics extends BaseTest{
-
-	@Test
-	public void WifiSettingsName() throws MalformedURLException
-	{
-	//code to start server	
-		//AndroidDriver , IOSDriver
-		//Appium code - > Appium Server -> Mobile 		
-		//Actual automation
-		//Xpath, id, accessibilityId, classname, androidUIAutomator
-		
-	//tagName[@attribute='value']  -> //tagName
-		driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-		driver.findElement(By.xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")).click();
-		driver.findElement(By.id("android:id/checkbox")).click();
-               //If xpath is too long, you can use tagName instead.
-		driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click();
-                 driver.findElement(By.id("android:id/edit")).sendKeys("Rahul Wifi");
-               //The className is not unique, that's why we use `.get(1)`
-         driver.findElements(AppiumBy.className("android.widget.Button")).get(1).click();
-
-	}	
+public class AppTest extends BaseTest
+{
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void AppTest() throws MalformedURLException
+    {
+    	
+    	        //code to start server	
+    			//AndroidDriver , IOSDriver
+    			//Appium code - > Appium Server -> Mobile 		
+    			//Actual automation
+    			//Xpath, id, accessibilityId, classname, androidUIAutomator
+    			
+    		    //tagName[@attribute='value']  -> //tagName
+    			driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+    			driver.findElement(By.xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")).click();
+    			driver.findElement(By.id("android:id/checkbox")).click();
+    	        //If xpath is too long, you can use tagName instead.
+    			driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click(); 	
+    			driver.findElement(By.id("android:id/edit")).sendKeys("XH Wifi");
+                   //The className is not unique, that's why we use `.get(1)`
+                driver.findElements(AppiumBy.className("android.widget.Button")).get(1).click();
+    	
+    }
 }
 
 ```
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/6409d2b5-3664-4976-a920-de009fca4401)
 
- ```java
-  // BaseTest.java
-   package rahulshettyacademy;
-
-	import java.net.MalformedURLException;
-	import java.net.URL;
-	import org.testng.annotations.Test;
-	
-	import io.appium.java_client.android.AndroidDriver;
-	import io.appium.java_client.android.options.UiAutomator2Options;
-	
-	public class BaseTest {
-                public AndroidDriver driver;
-		public AppiumDriverLocalService service;
-		@BeforeClass
-		public void ConfigureAppium() throws MalformedURLException
-		{
-
-                   AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("//usr//local//lib//node_modules//appium//build//lib//main.js"))
-  			.withIPAddress("127.0.0.1").usingPort(4723).build();
-                   service.start();
-		   UiAutomator2Options options = new UiAutomator2Options();
-		   options.setDeviceName("RahulPhone"); //emulator
-		   options.setApp("/////ApiDemo-debug.apk")	
-		   driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
-                   // If element is not found until 10 seconds, then it will fail.
-                    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		}
-  		 @AfterClass
-	         public void tearDown()
-		  {
-		      driver.quit();
-		      service.stop();
-		  }
-	}
-  ```
 
 ### 35. How to extract the text & Enter the info on Mobile Apps with Appium
 - Using `Assert.assertEquals` to check the group whether include the correct content.
