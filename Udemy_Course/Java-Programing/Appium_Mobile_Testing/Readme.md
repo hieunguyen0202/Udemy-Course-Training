@@ -481,37 +481,48 @@ public class AppTest extends BaseTest
 - YouTube : https://www.youtube.com/c/RahulShettyAcademy
 
 ### 33. Introduction to Id, Xpath & Accessibility ID locators in App with an example
+- Click on `Tap` to go next page
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/ebd8e616-ae5c-4f3e-ae6e-ee87707009fd)
+- Check Box Click
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/5b2b60bb-f334-4e9c-88f7-5385b3e297b1)
+- Next Step select `WIFI Settings`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/56a68f61-5338-4b1d-a36c-c69d9887fe23)
+
 ```java
-package rahulshettyacademy;
+package TheFirstTestingProject;
 
 import java.net.MalformedURLException;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.By;
 
-public class AppiumBasics extends BaseTest{
+public class AppTest extends BaseTest
+{
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void AppTest() throws MalformedURLException
+    {
+    	
+    	        //code to start server	
+    			//AndroidDriver , IOSDriver
+    			//Appium code - > Appium Server -> Mobile 		
+    			//Actual automation
+    			//Xpath, id, accessibilityId, classname, androidUIAutomator
+    			
+    		    //tagName[@attribute='value']  -> //tagName
+    			driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+    			driver.findElement(By.xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")).click();
+    			driver.findElement(By.id("android:id/checkbox")).click();
+    	        //If xpath is too long, you can use tagName instead.
+    			driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click(); 	
 
-	@Test
-	public void WifiSettingsName() throws MalformedURLException
-	{
-	//code to start server	
-		//AndroidDriver , IOSDriver
-		//Appium code - > Appium Server -> Mobile 		
-		//Actual automation
-		//Xpath, id, accessibilityId, classname, androidUIAutomator
-		
-	//tagName[@attribute='value']  -> //tagName
-		driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-		driver.findElement(By.xpath("//android.widget.TextView[@content-desc='3. Preference dependencies']")).click();
-		driver.findElement(By.id("android:id/checkbox")).click();
-               //If xpath is too long, you can use tagName instead.
-		driver.findElement(By.xpath("(//android.widget.RelativeLayout)[2]")).click(); 	
-	}	
+    	
+    }
 }
-
 ```
 ### 34. How to handle Mobile popups & return list of matching elements on Android app
 - Quit session and start again
