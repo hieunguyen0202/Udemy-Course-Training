@@ -1022,3 +1022,10 @@ public class SwipeDemo extends BaseTest
 
 
 ```
+## Section 7: Appium Miscellaneous Topics for Android Automation
+### 40. How to Perform Drag & Drop on elements in app using Appium
+### 41. Assignment - End to end exercise on Appium
+### 42. Automate Miscellaneous Activities like orientation & KeyEvents using Appium
+### 43. Please Note
+### 44. How to open App using app package and activity name using appium
+
