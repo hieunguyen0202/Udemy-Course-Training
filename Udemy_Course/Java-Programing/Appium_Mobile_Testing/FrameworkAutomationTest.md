@@ -278,7 +278,170 @@ public class TestCase_4 extends BaseTest
 ```
 ## Section 17: Framework Part 2- Code Design Patterns in Writing Android Automation Test
 ### 81. Part 1 - Implement Page object file for Product Catalogue page with actions
+```java
+//FormPage.java
+package TheSecondTestingProject.pageObjects.Android;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import TheSecondTestingProject.utils.AndroidActions;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+public class FormPage extends AndroidActions 
+{
+       
+	   AndroidDriver driver;
+	   public FormPage(AndroidDriver driver)
+	   {
+		   //Call the parent contructor
+		   super(driver);
+		   this.driver = driver;
+		   PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	   }
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/nameField")
+	   private WebElement nameField;
+	   
+	   //driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+	   @AndroidFindBy(xpath="//android.widget.RadioButton[@text='Female']")
+	   private WebElement femaleOption;
+	   
+	   //driver.findElement(By.xpath("//android.widget.RadioButton[@text='Male']")).click();
+	   @AndroidFindBy(xpath="//android.widget.RadioButton[@text='Male']")
+	   private WebElement maleOption;
+	   
+	   //driver.findElement(By.id("android:id/text1")).click();
+	   @AndroidFindBy(id="android:id/text1")
+	   private WebElement countrySelection;
+	   
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/btnLetsShop")
+	   private WebElement shopButton;
+	   
+	   public void setNameField(String name)
+	   {
+		   nameField.sendKeys(name);
+		   driver.hideKeyboard();
+	   }
+	   
+	   public void setGender(String gender)
+	   {
+		   if (gender.contains("female"))
+			   femaleOption.click();
+		   else 
+			   maleOption.click();
+	   }
+	   
+	   public void setCountrySelection(String countryName)
+	   {
+		   countrySelection.click();
+		   scrollToText(countryName);
+		   driver.findElement(By.xpath("//android.widget.TextView[@text='"+countryName+"']")).click();
+		   
+	   }
+	   public void submitForm()
+	   {
+		   shopButton.click();
+	   }
+}
+
+```
+
+```java
+//ProductCatalogue.java
+package TheSecondTestingProject.pageObjects.Android;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import TheSecondTestingProject.utils.AndroidActions;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+public class ProductCatalogue extends AndroidActions
+{
+
+	   AndroidDriver driver;
+	   public ProductCatalogue(AndroidDriver driver)
+	   {
+		   //Call the parent contructor
+		   super(driver);
+		   this.driver = driver;   
+		   PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	   }
+	   
+	   //driver.findElements(By.xpath("//android.widget.TextView[@text='ADD TO CART']")).get(0).click();
+	   @AndroidFindBy(xpath="//android.widget.TextView[@text='ADD TO CART']")
+	   private List<WebElement> addToCart;
+	   
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();	
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/appbar_btn_cart")
+	   private WebElement btnCart;
+	   
+	   public void addItemToCartByIndex(int index)
+	   {
+		   addToCart.get(index).click();
+	   }
+	   
+	   public void goToCartPage() throws InterruptedException
+	   {
+		   btnCart.click();
+		   Thread.sleep(2000);
+	   }
+}
+
+```
+
+
+```java
+//TestCase_4.java
+package TheSecondTestingProject;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import TheSecondTestingProject.pageObjects.Android.FormPage;
+import TheSecondTestingProject.pageObjects.Android.ProductCatalogue;
+import io.appium.java_client.AppiumBy;
+
+public class TestCase_4 extends BaseTest 
+{
+ 
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_4Test() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+    	        FormPage formPage = new FormPage(driver);
+    	        formPage.setNameField("Xuan Hieu");
+    	        formPage.setGender("female");
+    	        formPage.setCountrySelection("Argentina");
+    	        formPage.submitForm();
+    	        ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+    	        productCatalogue.addItemToCartByIndex(0);
+    	        productCatalogue.addItemToCartByIndex(0);
+    	        productCatalogue.goToCartPage();
+		
+    }
+}
+
+```
 ### 82. Part 2 - Implement Page object file for Product Catalogue page with actions
 
 ### 83. Part 3 - Implement Page object file for Cart page with actions
