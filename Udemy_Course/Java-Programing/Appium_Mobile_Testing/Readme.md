@@ -1143,8 +1143,24 @@ public class MisceallanousAppiumActions extends BaseTest{
 
 ```
 ### 43. Please Note
+## Section 8: Realtime Ecommerce App-End to End Practise Exercises
+### 45. Introduction to App features and test cases to automate
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/0e75c535-3189-4e25-8b48-7a6442a48d06)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/87eede6c-8ec2-41f8-a7c8-229ec8289464)
+- How to download and install app emulator `General-Store.apk`
+    - Step 1: Download `General-Store.apk` and save in `C:\Users\HP\Practice_App_Automate\General-Store.apk`
+    - Step 2: Run device emulator in Android Studio
+    - Step 3: Run command `cd C:\Users\HP\AppData\Local\Android\Sdk\platform-tools`
+    - Step 4: Run command `adb install C:\Users\HP\Practice_App_Automate\General-Store.apk`
+### 46. Test Case in Filling the form details for shopping
+- Step: 
+- Create new class `TestCase_1`
+- 
+
+
 ## Section 9: Hybrid  App Automation with Appium to switch from Apps to Web Browser
 ### 53. Testcase - Validating Mobile Gestures of App ( Tap, Long Press)
+
 ### 54. How to handle objects when rendered in Web view?
 ### 55. TestCase -Automate Hybrid App with context Switch using Chrome Driver
 
