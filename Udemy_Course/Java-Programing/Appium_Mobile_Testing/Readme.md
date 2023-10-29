@@ -1652,4 +1652,4 @@ public class BaseTest {
 ### 56. Desired capabilities to run Appium tests on Mobile browser
 
 
-## Section 16: Framework Part 1- Code Design Patterns in Writing Android Automation Test
+
