@@ -1732,6 +1732,37 @@ public class MobileBrowserTest extends BrowserBaseTest{
 
 ```
 ### 56. Desired capabilities to run Appium tests on Mobile browser
+- If it is browser then APM inspector cannot get for you.
+- The screenshot doesn't change even if I quit and open.
+- Because APM Inspector is designed only for native apps.
+- Using F12 or `inspect`on web browser to select and find elements.
+- Step Test: Go to `Navbar icon`-> Select `Product` -> Scroll down -> Find and select `DevOps`
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/7f5d5af5-56dd-408b-9ca3-6e425afab0dd)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/dbdea631-fab9-4887-9afd-f8338fe03261)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/0ff1ea33-57b9-45fb-b809-6d18133fca72)
 
+```java
+//BrowserMobileTest.java
+package rahulshettyacademy;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
+public class MobileBrowserTest extends BrowserBaseTest{
+	@Test
+	public void browserTest()
+	
+	{
+		driver.get("https://rahulshettyacademy.com/angularAppdemo/");
+		driver.findElement(By.xpath("//span[@class='navbar-toggler-icon']")).click();
+		driver.findElement(By.cssSelector("a[routerlink*='products']")).click();
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1000)", "");	//Scroll
+		String text = driver.findElement(By.cssSelector("a[href*='products/3']")).getText();
+		Assert.assertEquals(text, "Devops");
+	}
+}
+
+```
