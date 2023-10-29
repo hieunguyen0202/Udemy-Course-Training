@@ -2,6 +2,8 @@
 ### 76. Important Note
 
 ### 77. Understand the importance of framework design - Getting started with Project
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/46cf958c-9de1-4e31-a947-0ced0dbac8ba)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/9dd00536-4d36-4e9c-a6ae-6f8e7595a4f9)
 
 ### 78. Introduction to Page object Factory and design Implementation idea
 
