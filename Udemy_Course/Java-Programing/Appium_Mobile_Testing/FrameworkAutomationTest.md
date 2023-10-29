@@ -475,6 +475,8 @@ public class TestCase_4 extends BaseTest
                   ......
 ```
 ### 83. Part 3 - Implement Page object file for Cart page with actions
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/ccfc4d04-9f28-4f03-9ee0-6dbf82fde586)
+
 ```java
 //FormPage.java
 package TheSecondTestingProject.pageObjects.Android;
