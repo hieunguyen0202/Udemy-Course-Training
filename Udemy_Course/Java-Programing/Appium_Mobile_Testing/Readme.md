@@ -1370,6 +1370,25 @@ public class TestCase_4 extends BaseTest
 }
 
 ```
+### 50. Be a Mentor or Get Guidance from QA Community
+Be a Mentor or Get Guidance from QA Community
+Ready to check the knowledge you acquired from this tutorial?
+Follow our Social media channels where our students posts interview questions on regular basis from their interview experience.
+You can help them with appropriate answer or you can learn from the solution given by others.
+There is great collaboration going on world wide with Thousands of students on various QA Topics. Be a part of them and Enhance your Skills to next level
+You can be a mentor or get Guidance for all your QA related Automation questions from below channels
+FB QA Group : https://www.facebook.com/groups/RahulShettyAcademy/
+LinkedIn : https://www.linkedin.com/in/rahul-shetty-trainer/
+Subscribe to our below YouTube channel for Automation Tidbits and many Miscellaneous Important QA General topics which needed for Real time projects
+YouTube : https://www.youtube.com/c/RahulShettyAcademy
+### 51. TestCase- Validating Total amount generated functionality
+- Summ and check total cost in your cart
+-![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/c53aa3de-db42-4c7e-95eb-3ab92d13bb7d)
+- Write:
+```java
+
+```
+### 52. Code optimization with user defined functions
 ## Section 9: Hybrid  App Automation with Appium to switch from Apps to Web Browser
 ### 53. Testcase - Validating Mobile Gestures of App ( Tap, Long Press)
 
