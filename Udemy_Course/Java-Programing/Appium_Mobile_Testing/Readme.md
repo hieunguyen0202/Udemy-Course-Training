@@ -1254,7 +1254,122 @@ public class TestCase_2 extends BaseTest {
 ```
 
 ### 48. Testcase-Scrolling in product list example with Appium Android scroll
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/401d10d9-e885-4c5c-839c-8d86b3c4a229)
 
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/b6640615-4cb2-4073-8477-55d8756ec6c4)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/65cab612-f3f7-4501-b804-c3ca90fe4253)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/e1c32ada-7959-4a90-a8cc-96ffa305fee0)
+```java
+package TheFirstTestingProject;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class TestCase_3 extends BaseTest 
+{
+  
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_3Test() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+    			driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+    			driver.hideKeyboard();
+    			driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+    			driver.findElement(By.id("android:id/text1")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));"));
+    			driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
+    			driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Jordan 6 Rings\"));"));
+    			
+    			int productCount =	driver.findElements(By.id("com.androidsample.generalstore:id/productName")).size();
+    			
+    			for(int i =0;i<productCount;i++)
+    			{
+    				String productName =driver.findElements(By.id("com.androidsample.generalstore:id/productName")).get(i).getText();
+    				
+    				if(productName.equalsIgnoreCase("Jordan 6 Rings"))
+    				{
+    					driver.findElements(By.id("com.androidsample.generalstore:id/productAddCart")).get(i).click();
+    				}
+    			}
+    			driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
+
+    			Thread.sleep(3000);
+    					
+    			
+    }
+}
+
+```
+### 49. Testcase-Dynamically selecting Product by scanning list based on text
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/ec506f7d-6e9b-45ab-a653-a73e55d85c9b)
+
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/526e3327-ec1a-42a8-91b9-a11a4fab0fc0)
+
+```java
+package TheFirstTestingProject;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class TestCase_4 extends BaseTest 
+{
+ 
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_4Test() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+    			driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+    			driver.hideKeyboard();
+    			driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+    			driver.findElement(By.id("android:id/text1")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));"));
+    			driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
+    			driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Jordan 6 Rings\"));"));
+    			
+    			int productCount =	driver.findElements(By.id("com.androidsample.generalstore:id/productName")).size();
+    			
+    			for(int i =0;i<productCount;i++)
+    			{
+    				String productName =driver.findElements(By.id("com.androidsample.generalstore:id/productName")).get(i).getText();
+    				
+    				if(productName.equalsIgnoreCase("Jordan 6 Rings"))
+    				{
+    					driver.findElements(By.id("com.androidsample.generalstore:id/productAddCart")).get(i).click();
+    				}
+    			}
+    			driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
+    			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+    			wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title")),"text" , "Cart"));
+    				
+    			String lastPageProduct = driver.findElement(By.id("com.androidsample.generalstore:id/productName")).getText();
+    			Assert.assertEquals(lastPageProduct, "Jordan 6 Rings");
+    				
+    			
+    }
+}
+
+```
 ## Section 9: Hybrid  App Automation with Appium to switch from Apps to Web Browser
 ### 53. Testcase - Validating Mobile Gestures of App ( Tap, Long Press)
 
