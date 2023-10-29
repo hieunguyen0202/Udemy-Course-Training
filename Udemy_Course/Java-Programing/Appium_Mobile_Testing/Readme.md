@@ -1459,6 +1459,7 @@ wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.an
 }
 ```
 ### 54. How to handle objects when rendered in Web view?
+- The context task: From the `Mobile App` -> Go to `Chrome Browser` web page -> Go back to the `Mobile App` 		
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/52c25fc8-8b11-4717-9dee-f5bf16e1957e)
 
 ```java
