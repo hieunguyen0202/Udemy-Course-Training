@@ -1,4 +1,4 @@
-## Section 16: Framework Part 1- Code Design Patterns in Writing Android Automation Test
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/68be1a4b-4176-4924-b5ae-e6f799a02b48)## Section 16: Framework Part 1- Code Design Patterns in Writing Android Automation Test
 ### 76. Important Note
 
 ### 77. Understand the importance of framework design - Getting started with Project
@@ -93,4 +93,184 @@ public class FormPage {
 
 ```
 ### 80. Inherit Android Actions class to page object classes for reusable methods
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/7e3b4f14-60e2-46c8-a397-667097a4fa77)
+```java
+//AndroidAction.java
+package TheSecondTestingProject.pageObjects.Android;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import TheSecondTestingProject.utils.AndroidActions;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+public class FormPage extends AndroidActions 
+{
+       
+	   AndroidDriver driver;
+	   public FormPage(AndroidDriver driver)
+	   {
+		   //Call the parent contrcutor
+		   super(driver);
+		   this.driver = driver;
+		   PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	   }
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/nameField")
+	   private WebElement nameField;
+	   
+	   //driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+	   @AndroidFindBy(xpath="//android.widget.RadioButton[@text='Female']")
+	   private WebElement femaleOption;
+	   
+	   //driver.findElement(By.xpath("//android.widget.RadioButton[@text='Male']")).click();
+	   @AndroidFindBy(xpath="//android.widget.RadioButton[@text='Male']")
+	   private WebElement maleOption;
+	   
+	   //driver.findElement(By.id("android:id/text1")).click();
+	   @AndroidFindBy(id="android:id/text1")
+	   private WebElement countrySelection;
+	   
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/btnLetsShop")
+	   private WebElement shopButton;
+	   
+	   public void setNameField(String name)
+	   {
+		   nameField.sendKeys(name);
+		   driver.hideKeyboard();
+	   }
+	   
+	   public void setGender(String gender)
+	   {
+		   if (gender.contains("female"))
+			   femaleOption.click();
+		   else 
+			   maleOption.click();
+	   }
+	   
+	   public void setCountrySelection(String countryName)
+	   {
+		   countrySelection.click();
+		   scrollToText(countryName);
+		   driver.findElement(By.xpath("//android.widget.TextView[@text='"+countryName+"']")).click();
+		   
+	   }
+	   public void submitForm()
+	   {
+		   shopButton.click();
+	   }
+}
+
+```
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/a0b031fa-98e9-4861-96b1-a1d86998ff14)
+```java
+//FormPage.java
+package TheSecondTestingProject.pageObjects.Android;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import TheSecondTestingProject.utils.AndroidActions;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+public class FormPage extends AndroidActions 
+{
+       
+	   AndroidDriver driver;
+	   public FormPage(AndroidDriver driver)
+	   {
+		   //Call the parent contructor
+		   super(driver);
+		   this.driver = driver;
+		   PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	   }
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/nameField")
+	   private WebElement nameField;
+	   
+	   //driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+	   @AndroidFindBy(xpath="//android.widget.RadioButton[@text='Female']")
+	   private WebElement femaleOption;
+	   
+	   //driver.findElement(By.xpath("//android.widget.RadioButton[@text='Male']")).click();
+	   @AndroidFindBy(xpath="//android.widget.RadioButton[@text='Male']")
+	   private WebElement maleOption;
+	   
+	   //driver.findElement(By.id("android:id/text1")).click();
+	   @AndroidFindBy(id="android:id/text1")
+	   private WebElement countrySelection;
+	   
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/btnLetsShop")
+	   private WebElement shopButton;
+	   
+	   public void setNameField(String name)
+	   {
+		   nameField.sendKeys(name);
+		   driver.hideKeyboard();
+	   }
+	   
+	   public void setGender(String gender)
+	   {
+		   if (gender.contains("female"))
+			   femaleOption.click();
+		   else 
+			   maleOption.click();
+	   }
+	   
+	   public void setCountrySelection(String countryName)
+	   {
+		   countrySelection.click();
+		   scrollToText(countryName);
+		   driver.findElement(By.xpath("//android.widget.TextView[@text='"+countryName+"']")).click();
+		   
+	   }
+	   public void submitForm()
+	   {
+		   shopButton.click();
+	   }
+}
+```
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/158d3b45-f8f1-44a2-afd1-cd93d32e0ec0)
+```java
+//TestCase_4.java
+package TheSecondTestingProject;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import TheSecondTestingProject.pageObjects.Android.FormPage;
+import io.appium.java_client.AppiumBy;
+
+public class TestCase_4 extends BaseTest 
+{
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_4Test() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+    	        FormPage formPage = new FormPage(driver);
+    	        formPage.setNameField("Xuan Hieu");
+    	        formPage.setGender("female");
+    	        formPage.setCountrySelection("Argentina");
+    	        formPage.submitForm();		
+    }
+}
+
+```
