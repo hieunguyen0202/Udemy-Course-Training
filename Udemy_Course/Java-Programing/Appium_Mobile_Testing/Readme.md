@@ -1153,10 +1153,107 @@ public class MisceallanousAppiumActions extends BaseTest{
     - Step 3: Run command `cd C:\Users\HP\AppData\Local\Android\Sdk\platform-tools`
     - Step 4: Run command `adb install C:\Users\HP\Practice_App_Automate\General-Store.apk`
 ### 46. Test Case in Filling the form details for shopping
-- Step: 
-- Create new class `TestCase_1`
-- 
+- Step 1:
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/daafe238-f103-42b6-bfc6-58e5b0cea62e)
+- Step 2:
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/34a6d6f2-b2ac-4cf2-99dd-7fdf3bd054e1)
+- Step 3:
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/8834f2ac-f88b-4d00-afc1-e379ad6f1cda)
+- Step 4:
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/67351314-56e9-4ac8-b6f0-6aadba5a3971)
 
+- Step 5:
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/8204ae9b-f3f7-4a3d-af25-77922c016e5a)
+
+- Create new class `TestCase_1`
+- Open `Appium Inspector`
+  ```json
+  {
+  "appium:app": "C://Users//HP//eclipse-workspace//Appium//src//test//java//resources//General-Store.apk",
+  "appium:deviceName": "FirstAutomationTesting",
+  "platformName": "android",
+  "appium:automation name": "UIAutomator2"
+}
+  ```
+- Write code:
+```java
+package TheFirstTestingProject;
+
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class TestCase_1 extends BaseTest {
+
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_1Test() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+    			driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+    			driver.hideKeyboard();
+    			driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+    			driver.findElement(By.id("android:id/text1")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));"));
+    			driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
+    			driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+
+    			Thread.sleep(3000);
+    					
+    			
+    }
+}
+
+```
+### 47. Verifying toast messages for error validations
+- if you forget to enter `text` and click button, the error message will appear.
+- ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/5efc8af1-8c67-420a-be99-6255097f21cb)
+
+- Write code
+```java
+package TheFirstTestingProject;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class TestCase_2 extends BaseTest {
+		
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_2Test() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+//    			driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+    			driver.hideKeyboard();
+    			driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+    			driver.findElement(By.id("android:id/text1")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));"));
+    			driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
+    			driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+    			String toastMessage = driver.findElement(By.xpath("//android.widget.Toast[1]")).getAttribute("Name");
+    			Assert.assertEquals(toastMessage,"Please enter your name");
+    			Thread.sleep(3000);
+    					
+    			
+    }
+}
+```
+
+### 48. Testcase-Scrolling in product list example with Appium Android scroll
 
 ## Section 9: Hybrid  App Automation with Appium to switch from Apps to Web Browser
 ### 53. Testcase - Validating Mobile Gestures of App ( Tap, Long Press)
