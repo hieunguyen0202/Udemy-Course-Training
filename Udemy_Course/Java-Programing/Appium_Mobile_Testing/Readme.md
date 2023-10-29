@@ -1646,3 +1646,10 @@ public class BaseTest {
 }
 ```
 - Run the test again. So, the issue is solved
+## Section 10: Mobile Chrome Browsers Automation With Appium - RealTime Project
+### 56. Desired capabilities to run Appium tests on Mobile browser
+
+### 56. Desired capabilities to run Appium tests on Mobile browser
+
+
+## Section 16: Framework Part 1- Code Design Patterns in Writing Android Automation Test
