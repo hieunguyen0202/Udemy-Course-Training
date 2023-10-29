@@ -1,4 +1,5 @@
-![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/68be1a4b-4176-4924-b5ae-e6f799a02b48)## Section 16: Framework Part 1- Code Design Patterns in Writing Android Automation Test
+
+## Section 16: Framework Part 1- Code Design Patterns in Writing Android Automation Test
 ### 76. Important Note
 
 ### 77. Understand the importance of framework design - Getting started with Project
@@ -43,6 +44,7 @@ public class FormPage {
 
 ```
 ### 79. Create Action methods in the Pageobject file to drive into tests
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/68be1a4b-4176-4924-b5ae-e6f799a02b48)
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/95d458a5-daa8-45dd-86e7-703e603b4f92)
 
 ```java
