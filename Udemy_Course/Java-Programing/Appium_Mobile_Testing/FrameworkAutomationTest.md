@@ -443,7 +443,37 @@ public class TestCase_4 extends BaseTest
 
 ```
 ### 82. Part 2 - Implement Page object file for Product Catalogue page with actions
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/ddcfa7d9-2800-465e-b029-bb0b1a070470)
 
+```java
+//FormPage.java
+....
+ public ProductCatalogue submitForm()
+	   {
+		   shopButton.click();
+		   return new ProductCatalogue(driver);
+	   }
+```
+
+```java
+//ProductCatalogue.java
+.....
+ public CartPage goToCartPage() throws InterruptedException
+	   {
+		   btnCart.click();
+		   Thread.sleep(2000);
+		   return new CartPage(driver);
+	   }
+```
+
+```java
+//TestCase_4.java
+                .....
+    	        ProductCatalogue productCatalogue = formPage.submitForm();   
+                  .......
+    	        CartPage cartPage = productCatalogue.goToCartPage();
+                  ......
+```
 ### 83. Part 3 - Implement Page object file for Cart page with actions
 
 ### 84. Part 4- Convert IOS test into Page object Pattern
