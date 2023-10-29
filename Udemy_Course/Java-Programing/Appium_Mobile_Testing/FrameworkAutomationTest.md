@@ -276,3 +276,13 @@ public class TestCase_4 extends BaseTest
 }
 
 ```
+## Section 17: Framework Part 2- Code Design Patterns in Writing Android Automation Test
+### 81. Part 1 - Implement Page object file for Product Catalogue page with actions
+
+### 82. Part 2 - Implement Page object file for Product Catalogue page with actions
+
+### 83. Part 3 - Implement Page object file for Cart page with actions
+
+### 84. Part 4- Convert IOS test into Page object Pattern
+
+### 85. Part 5- Convert IOS test into Page object Pattern
