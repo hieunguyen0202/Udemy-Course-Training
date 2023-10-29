@@ -475,7 +475,273 @@ public class TestCase_4 extends BaseTest
                   ......
 ```
 ### 83. Part 3 - Implement Page object file for Cart page with actions
+```java
+//FormPage.java
+package TheSecondTestingProject.pageObjects.Android;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import TheSecondTestingProject.utils.AndroidActions;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+public class FormPage extends AndroidActions 
+{
+       
+	   AndroidDriver driver;
+	   public FormPage(AndroidDriver driver)
+	   {
+		   //Call the parent contructor
+		   super(driver);
+		   this.driver = driver;
+		   PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	   }
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/nameField")
+	   private WebElement nameField;
+	   
+	   //driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+	   @AndroidFindBy(xpath="//android.widget.RadioButton[@text='Female']")
+	   private WebElement femaleOption;
+	   
+	   //driver.findElement(By.xpath("//android.widget.RadioButton[@text='Male']")).click();
+	   @AndroidFindBy(xpath="//android.widget.RadioButton[@text='Male']")
+	   private WebElement maleOption;
+	   
+	   //driver.findElement(By.id("android:id/text1")).click();
+	   @AndroidFindBy(id="android:id/text1")
+	   private WebElement countrySelection;
+	   
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/btnLetsShop")
+	   private WebElement shopButton;
+	   
+	   public void setNameField(String name)
+	   {
+		   nameField.sendKeys(name);
+		   driver.hideKeyboard();
+	   }
+	   
+	   public void setGender(String gender)
+	   {
+		   if (gender.contains("female"))
+			   femaleOption.click();
+		   else 
+			   maleOption.click();
+	   }
+	   
+	   public void setCountrySelection(String countryName)
+	   {
+		   countrySelection.click();
+		   scrollToText(countryName);
+		   driver.findElement(By.xpath("//android.widget.TextView[@text='"+countryName+"']")).click();
+		   
+	   }
+	   public ProductCatalogue submitForm()
+	   {
+		   shopButton.click();
+		   return new ProductCatalogue(driver);
+	   }
+}
+
+```
+
+```java
+//ProductCatalogue.java
+package TheSecondTestingProject.pageObjects.Android;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import TheSecondTestingProject.utils.AndroidActions;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+public class ProductCatalogue extends AndroidActions
+{
+
+	   AndroidDriver driver;
+	   public ProductCatalogue(AndroidDriver driver)
+	   {
+		   //Call the parent contructor
+		   super(driver);
+		   this.driver = driver;   
+		   PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	   }
+	   
+	   //driver.findElements(By.xpath("//android.widget.TextView[@text='ADD TO CART']")).get(0).click();
+	   @AndroidFindBy(xpath="//android.widget.TextView[@text='ADD TO CART']")
+	   private List<WebElement> addToCart;
+	   
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();	
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/appbar_btn_cart")
+	   private WebElement btnCart;
+	   
+	   public void addItemToCartByIndex(int index)
+	   {
+		   addToCart.get(index).click();
+	   }
+	   
+	   public CartPage goToCartPage() throws InterruptedException
+	   {
+		   btnCart.click();
+		   Thread.sleep(2000);
+		   return new CartPage(driver);
+	   }
+}
+
+```
+
+```java
+//CartPage.java
+package TheSecondTestingProject.pageObjects.Android;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import TheSecondTestingProject.utils.AndroidActions;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+public class CartPage extends AndroidActions 
+{
+
+	   AndroidDriver driver;
+	   public CartPage(AndroidDriver driver)
+	   {
+		   //Call the parent contructor
+		   super(driver);
+		   this.driver = driver;   
+		   PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+	   }
+	   
+	   //List<WebElement> productPrices =driver.findElements(By.id("com.androidsample.generalstore:id/productPrice"));
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/productPrice")
+	   private List<WebElement> productList;
+	   
+	   //String displaySum =driver.findElement(By.id("com.androidsample.generalstore:id/totalAmountLbl")).getText();
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/totalAmountLbl")
+	   private WebElement totalAmount;
+	   
+	   //WebElement ele = driver.findElement(By.id("com.androidsample.generalstore:id/termsButton"));
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/termsButton")
+	   private WebElement terms;
+	   
+	   //driver.findElement(By.id("android:id/button1")).click();
+	   @AndroidFindBy(id="android:id/button1")
+	   private WebElement acceptButton;
+	   
+	   //driver.findElement(AppiumBy.className("android.widget.CheckBox")).click();
+	   @AndroidFindBy(className="android.widget.CheckBox")
+	   private WebElement checkBox;
+	   
+	   //driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
+	   @AndroidFindBy(id="com.androidsample.generalstore:id/btnProceed")
+	   private WebElement proceed;
+	   
+	   public List<WebElement>	getProductList()
+	   {
+		   return productList;
+	   }
+	   
+	   public double getProductsSum()
+	   {
+		   int count = productList.size();
+		   double totalSum = 0;
+		   for(int i = 0; i < count; i++)
+		   {
+			   String amountString = productList.get(i).getText();
+			   Double price = getFormattedAmount(amountString);
+			   totalSum = totalSum + price;
+		   }
+		   return totalSum;
+	   }
+	   
+	   
+	   public Double getTotalAmountDisplayed()
+	   {
+		   return getFormattedAmount(totalAmount.getText());
+	   }
+	   
+	   public void acceptTermsConditions()
+	   {
+		   longPressAction(terms);
+		   acceptButton.click();
+	   }
+	   
+	   public Double getFormattedAmount(String amount)
+	   {
+		   Double price = Double.parseDouble(amount.substring(1));
+		   return price;
+	   }
+	   public void submitOrder()
+	   {
+		   checkBox.click();
+		   proceed.click();	
+	   }
+	   
+}
+
+```
+
+
+```java
+//TestCase_4.java
+            package TheSecondTestingProject;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import TheSecondTestingProject.pageObjects.Android.CartPage;
+import TheSecondTestingProject.pageObjects.Android.FormPage;
+import TheSecondTestingProject.pageObjects.Android.ProductCatalogue;
+import io.appium.java_client.AppiumBy;
+
+public class TestCase_4 extends BaseTest 
+{
+ 
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_4Test() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+    	        FormPage formPage = new FormPage(driver);
+    	        formPage.setNameField("Xuan Hieu");
+    	        formPage.setGender("female");
+    	        formPage.setCountrySelection("Argentina");
+    	        ProductCatalogue productCatalogue = formPage.submitForm();   
+    	        //ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+    	        productCatalogue.addItemToCartByIndex(0);
+    	        productCatalogue.addItemToCartByIndex(0);
+    	        CartPage cartPage = productCatalogue.goToCartPage();
+    	        double totalSum = cartPage.getProductsSum();
+    	        double displayFormattedSum = cartPage.getTotalAmountDisplayed();
+    	        Assert.assertEquals(totalSum, displayFormattedSum);
+    	        cartPage.acceptTermsConditions();
+    	        cartPage.submitOrder();
+	
+    }
+}
+
+```
 ### 84. Part 4- Convert IOS test into Page object Pattern
 
 ### 85. Part 5- Convert IOS test into Page object Pattern
