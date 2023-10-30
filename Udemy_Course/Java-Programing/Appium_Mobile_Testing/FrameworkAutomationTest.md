@@ -747,3 +747,135 @@ public class TestCase_4 extends BaseTest
 ### 84. Part 4- Convert IOS test into Page object Pattern
 
 ### 85. Part 5- Convert IOS test into Page object Pattern
+## Section 18: Framework Part 2- Code Design Patterns in Writing Android Automation Test
+### 87. Implement Test Strategy on deciding how to run tests in a file
+
+```java
+package TheSecondTestingProject;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class TwoTest_1 extends BaseTest
+{
+
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_FailTest() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+//    			driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+    			driver.hideKeyboard();
+    			driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+    			driver.findElement(By.id("android:id/text1")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));"));
+    			driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
+    			driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+    			String toastMessage = driver.findElement(By.xpath("//android.widget.Toast[1]")).getAttribute("Name");
+    			Assert.assertEquals(toastMessage,"Please enter your name");
+    			Thread.sleep(3000);
+    					
+    			
+    }
+    
+    @Test
+    public void TestCase_SuccessTest() throws InterruptedException
+    {
+    		  
+    			driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+    			driver.hideKeyboard();
+    			driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+    			driver.findElement(By.id("android:id/text1")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));"));
+    			driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
+    			driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+    			Assert.assertTrue(driver.findElements(By.xpath("//android.widget.Toast[1]")).size()<1);
+	
+    }
+}
+```
+
+
+### First you have to open the app screen what you wish to grab activity.
+- Let's say I want to grab the activity of this home page.
+- First you have to open the app screen what you wish to grab activity.
+- In that case, go to terminal. Type `adb shell dumpsys window | grep -E 'mCurrentFocus'`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/72fe42c8-38d5-4d75-be67-3ff681b60084)
+- That's why
+   - The package Name:
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/a0b486f8-63d3-4b18-a620-a48853e8b75c)
+   - The Activity Name:
+        ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/344121c8-0ccb-4300-96d5-9715ffdece96)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/d8f12098-4464-415c-ad29-b77715e9b418)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/93ec69b5-17d0-4bad-9323-d00119a6ec38)
+
+```java
+
+package TheSecondTestingProject;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.Activity;
+
+public class TwoTest_1 extends BaseTest
+{
+
+	@BeforeMethod
+	public void preSetup()
+	{
+		//App Package & App Activity
+		Activity activity = new Activity("io.appium.android.apis", "io.appium.android.apis.preference.PreferenceDependencies");
+		driver.startActivity(activity);
+
+	}
+	/**
+     * Rigorous Test :-)
+	 * @throws InterruptedException 
+     */
+    @Test
+    public void TestCase_FailTest() throws InterruptedException
+    {
+    		    //tagName[@attribute='value']  -> //tagName
+    	        Thread.sleep(3000);
+//    			driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+    			driver.hideKeyboard();
+    			driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+    			driver.findElement(By.id("android:id/text1")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));"));
+    			driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
+    			driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+    			String toastMessage = driver.findElement(By.xpath("//android.widget.Toast[1]")).getAttribute("Name");
+    			Assert.assertEquals(toastMessage,"Please enter your name");
+    			Thread.sleep(3000);
+    					
+    			
+    }
+    
+    @Test
+    public void TestCase_SuccessTest() throws InterruptedException
+    {
+    		  
+    			driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Xuan Hieu");
+    			driver.hideKeyboard();
+    			driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
+    			driver.findElement(By.id("android:id/text1")).click();
+    			driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"));"));
+    			driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
+    			driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
+    			Assert.assertTrue(driver.findElements(By.xpath("//android.widget.Toast[1]")).size()<1);
+	
+    }
+}
+
+```
