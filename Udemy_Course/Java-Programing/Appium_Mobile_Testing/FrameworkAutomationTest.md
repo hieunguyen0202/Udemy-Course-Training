@@ -747,7 +747,7 @@ public class TestCase_4 extends BaseTest
 ### 84. Part 4- Convert IOS test into Page object Pattern
 
 ### 85. Part 5- Convert IOS test into Page object Pattern
-## Section 18: Framework Part 2- Code Design Patterns in Writing Android Automation Test
+## Section 18: Framework Part 2- Implement Test Strategy
 ### 87. Implement Test Strategy on deciding how to run tests in a file
 
 ```java
@@ -892,8 +892,35 @@ public class TwoTest_1 extends BaseTest
 
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/9fd34046-dfb5-42a9-a8bd-29d5f3f5e2c2)
 
+## Section 19: Framework Part 4- Data-Driven Testing with Parameterization  for Appium Tests
+### 90. Implement Data driven testing to testng tests using Data provider
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/19911763-6fe1-466e-b2da-cd1a8a07387d)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/aa93305c-3c36-4e15-99ab-2401202400eb)
 
+### 91. Parameterize the test data with multiple data sets using TestNG dataprovider
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/29517d71-360a-44db-a45c-81e0801dfc84)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/3b5b6ef1-d668-41eb-be83-a6c149e6f866)
 
+### 92. How to drive the data from Json files and load into Hashmap for parameterization
+- Create New Package and Json File
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/a4134600-34e8-4ef9-a00f-2113f7145902)
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/5b868996-3d26-443c-b232-31cf84b8fc38)
+- Config mavenproject
+ ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/4bc1f286-b656-4866-beb1-ea4d4000dc47)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/c67e78ff-586e-4ebf-b5e9-a962946887d6)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/eeff6b58-d777-4462-844d-f62103ee826e)
 
+- Step 1: Parse Json file -> Json String
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/bb1d8496-c8ec-4b0d-8574-3b60961b4675)
 
+- Step 2: Json String -> Hash Map (jackson)
+ ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/c9ad9c68-2697-42f6-a16f-bf571bf869af)
+ ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/6b49aecc-e57b-4460-81b1-115f04ee86aa)
+ ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/ed7dce1e-33d5-47dc-9ebc-daf1795ed024)
 
+- Step 3: HashMap -> Testcase (TestNg Data provider)
+
+### 93. Data utility which reads json and parse it for TestNG Dataprovider input (The same 92)
+## Section 20: Framework Part 5 - Setting up Global Configuration variables and generating reports
+
+## Section 21: Framework Part 6 - Sceenshots, TestNG Listener, Maven Integration with jenkins 
