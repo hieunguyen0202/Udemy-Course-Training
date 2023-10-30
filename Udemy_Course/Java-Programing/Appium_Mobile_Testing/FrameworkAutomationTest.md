@@ -1102,3 +1102,6 @@ public class TestReport {
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/9f53bb2c-acd4-4831-894b-7200f892eb2c)
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/1361298f-6f30-4fca-a1b6-549e63a6c789)
 
+### 101. How to run selected tests from pool of tests using TestNG groups
+
+### 104. Setting up Jenkins CI/CD tool in local machines
