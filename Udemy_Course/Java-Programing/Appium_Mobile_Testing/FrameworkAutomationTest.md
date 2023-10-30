@@ -890,8 +890,8 @@ public class TwoTest_1 extends BaseTest
 
 ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/e99429d0-6908-4c5c-be47-23b45803b8e8)
 
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/9fd34046-dfb5-42a9-a8bd-29d5f3f5e2c2)
 
-![Uploading image.png…]()
 
 
 
