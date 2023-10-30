@@ -879,3 +879,21 @@ public class TwoTest_1 extends BaseTest
 }
 
 ```
+### 89. How to run all tests together using Single TestNG.xml file
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/072bf007-f427-4017-a51d-a1418cf0ee96)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/e062f474-6c6d-40f1-ac30-e5b5b99cdb35)
+
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/0b05ac09-50c2-4014-b227-c4628c65ec3d)
+
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/3d27ff9c-2b12-40e7-9894-d275107f8c2c)
+
+
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/e99429d0-6908-4c5c-be47-23b45803b8e8)
+
+
+![Uploading image.png…]()
+
+
+
+
+
