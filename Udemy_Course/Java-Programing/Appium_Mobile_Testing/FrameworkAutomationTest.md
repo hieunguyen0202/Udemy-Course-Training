@@ -922,5 +922,183 @@ public class TwoTest_1 extends BaseTest
 
 ### 93. Data utility which reads json and parse it for TestNG Dataprovider input (The same 92)
 ## Section 20: Framework Part 5 - Setting up Global Configuration variables and generating reports
+### 96. Create Global properties file and read the global values from the file
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/c1ce762a-f02c-4b55-8c99-ef7331aff98f)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/2eafb67e-cb43-4664-b89b-9f2662a8dd37)
+### 97. Introduction to Extent reports - Quick 20min tutorial
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/cfd6d51a-7478-4dd0-85f0-a5f02ee988dd)
+- Step 1: Go to maven dependencies and type `ExtentReports`
+  ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/c9ef3a7b-8ab3-49a2-abbc-02dd6f0796ad)
+- Step 2: Add to 3 dependencies:
+  ```html
+   <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+	<dependency>
+	    <groupId>org.testng</groupId>
+	    <artifactId>testng</artifactId>
+	    <version>7.8.0</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>4.14.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+	<dependency>
+	    <groupId>com.aventstack</groupId>
+	    <artifactId>extentreports</artifactId>
+	    <version>5.1.1</version>
+	</dependency>
+  ```
+- Step 3:  I would show how to generate excellent reports with one single test.
+- ![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/a48350b3-df79-4fe4-a026-e70326124444)
+
+```java
+package TheSecondTestingProject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+
+
+public class ExtentReportDemo {
+		
+			ExtentReports extent;
+			@BeforeTest
+			public void config()
+			{
+				String path = System.getProperty("user.dir") + "\\reports\\index.html";
+				ExtentSparkReporter reporter = new ExtentSparkReporter (path);
+				reporter.config().setReportName("Web Automation Reports");
+				reporter.config().getDocumentTitle();
+				
+				
+				extent = new ExtentReports();
+				extent.attachReporter(reporter);
+				extent.setSystemInfo("Tester", "Udemy");
+				
+			}
+			@Test
+			public void DemoTest()
+			{
+				extent.createTest("111");
+				System.setProperty("webdriver.chrome.driver", "D:\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+				WebDriver driver =  new ChromeDriver();
+				driver.get("https://mvnrepository.com/");
+				System.out.print(driver.getTitle());
+				extent.flush();
+				
+			}
+}
+
+
+```
+- Step 4: Take a screenshort
+- 
+
+### 98. Create extent object and set it in the TestNG Listeners for automatic reports
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/ff96b037-8154-4853-80d5-04bbfef334c5)
+
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/9877cef5-ada8-4ccd-a218-d587ba86f7ec)
+```java
+//Listeners.java
+package Utils;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
+public class Listeners implements ITestListener 
+{
+	  ExtentTest test;
+	  ExtentReports extent = TestReport.config();
+	
+	  @Override
+	  public void onTestStart(ITestResult result) {
+	    // not implemented
+		  
+		  test = extent.createTest(result.getMethod().getMethodName());
+	  }
+	  
+	  
+	  @Override
+	  public void onTestSuccess(ITestResult result) {
+	    // not implemented
+		  test.log(Status.PASS, "Test Passed");
+	  }
+	  
+	  
+	  
+	  @Override
+	  public void onTestFailure(ITestResult result) {
+	    // not implemented
+		  test.fail(result.getThrowable());
+	  }
+	  
+	  
+	  public void onFinish(ITestContext context) {
+		    // not implemented
+		  extent.flush();
+		  }
+	  
+	  @Override
+	  public void onTestSkipped(ITestResult result) {
+	    // not implemented
+	  }
+	  
+
+}
+
+```
+```java
+// TestReport.java
+
+package Utils;
+
+import org.testng.annotations.BeforeTest;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class TestReport {
+
+	static ExtentReports extent;
+	@BeforeTest
+	public static ExtentReports config()
+	{
+		String path = System.getProperty("user.dir") + "\\reports\\index.html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter (path);
+		reporter.config().setReportName("Web Automation Reports");
+		reporter.config().getDocumentTitle();
+		
+		
+		extent = new ExtentReports();
+		extent.attachReporter(reporter);
+		extent.setSystemInfo("Tester", "Udemy");
+		return extent;
+		
+	}
+}
+
+```
+
+- Remember include `listener` tag into testng.xml to run automation Test scheduler
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/30e0ac9e-30f4-4d77-a202-db399d275589)
+
 
 ## Section 21: Framework Part 6 - Sceenshots, TestNG Listener, Maven Integration with jenkins 
+### 100. How to take automatic screenshots of Test failures & attach to report
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/446f8352-48a5-48a8-b96e-a5b9550a2e3a)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/9f53bb2c-acd4-4831-894b-7200f892eb2c)
+![image](https://github.com/hieunguyen0202/Udemy-Course-Training/assets/98166568/1361298f-6f30-4fca-a1b6-549e63a6c789)
+
