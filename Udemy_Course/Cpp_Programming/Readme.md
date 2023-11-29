@@ -1,38 +1,37 @@
 ### Section 5: Structure of a C++ Program
-- 36. Section Overview
-- 37. Overview of the Structure of a C++ Program
-- 38. #include Preprocessor Directive
-- 39. Comments
-- 40. The main() function
-- 41. Namespaces
-- 42. Basic Input and Output (I/O) using cin and cout 
-- Coding Exercise 1: Using cout and the insertion operator to say Hi to Frank
+36. Section Overview
+37. Overview of the Structure of a C++ Program
+38. #include Preprocessor Directive
+39. Comments
+40. The main() function
+41. Namespaces
+42. Basic Input and Output (I/O) using cin and cout 
+
 
 ### Section 6: Variables and Constants
-- 43. Section Overview
-- 44. What is a variable?
-- 45. Declaring and Initializing Variables
-- Coding Exercise 4: Declaring and Initializing Variables
-- 46. Global Variables
-- 47. C++ Built-in Primitive Types
-- 48. What is the Size of a Variable (sizeof)
-- 49. What is a Constant?
-- 50. Declaring and Using Constants
-- 51. Section Challenge
-- 52. Section Challenge - Solution
+43. Section Overview
+44. What is a variable?
+45. Declaring and Initializing Variables
+46. Global Variables
+47. C++ Built-in Primitive Types
+48. What is the Size of a Variable (sizeof)
+49. What is a Constant?
+50. Declaring and Using Constants
+51. Section Challenge
+52. Section Challenge - Solution
 
 ### Section 7: Arrays and Vectors
-- 53. Section Overview
-- 54. What is an Array?
-- 55. Declaring and Initializing Arrays
-- 56. Accessing and Modifying Array Elements
+53. Section Overview
+54. What is an Array?
+55. Declaring and Initializing Arrays
+56. Accessing and Modifying Array Elements
 - Coding Exercise 5: Declaring, Initializing and Accessing an Array
-- 57. Multidimensional Arrays
-- 58. Declaring and Initializing Vectors
-- 59. Accessing and Modifying Vector Elements
+57. Multidimensional Arrays
+58. Declaring and Initializing Vectors
+59. Accessing and Modifying Vector Elements
 - Coding Exercise 6: Declaring, Initializing and Accessing Vectors
-- 60. Section Challenge
-- 61. Section Challenge - Solution
+60. Section Challenge
+61. Section Challenge - Solution
 
 ### Section 8: Statements ansd Operators
 - 62. Section Overview
